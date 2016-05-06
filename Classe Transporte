@@ -1,0 +1,12 @@
+package classesBasicas;
+
+public class Transporte extends Empresa {
+	
+	public Transporte(String nome_da_empresa, int cnpj){
+		super(nome_da_empresa,cnpj);
+	}
+	public Voo criarVoo(int hora_saida, int min_saida, int hora_chegada, int min_chegada, String origem, String destino, int ano1, int mes1, int dia1, int ano2, int mes2, int dia2, int codigo){
+		Voo voo = new Voo(hora_saida,min_saida,hora_chegada,min_chegada,origem,destino,ano1,mes1,dia1,ano2,mes2,dia2,codigo);
+		return voo;
+	}
+}
