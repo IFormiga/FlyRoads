@@ -3,7 +3,7 @@ package exceptions;
 public class EEException extends Exception {
 
 	public String getCnpj() {
-		return cnpj;
+		return this.cnpj;
 	}
 
 	public void setCnpj(String cnpj) {
