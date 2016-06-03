@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import negocio.Voo;
-public class RepositorioVoos {
+public class RepositorioVoos implements IRepositorioVoo{
 	private List<Voo> listaVoos = new ArrayList<Voo>();
 	
 	public RepositorioVoos(){
@@ -55,8 +55,8 @@ public class RepositorioVoos {
 				System.out.println("Hora de Saida: "+voo2.getSaida());
 				System.out.println("Hora de Chegada: "+voo2.getChegada());
 				System.out.println("---------------------------------------");	
+				r = voo2;
 			}
-		r = voo2;
 		}
 		return r;
 	}
