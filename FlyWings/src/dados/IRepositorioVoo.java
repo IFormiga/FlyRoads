@@ -10,8 +10,10 @@ public interface IRepositorioVoo {
 
 	public abstract void listarVoos();
 
-	public abstract void procurarVoo(int codigo_do_voo);
+	public abstract Voo procurarVoo(int codigo_do_voo);
 
+	public abstract boolean existe(int codigo_do_voo);
+	
 	public abstract void alterarVoo(Voo a_ser_alterado, Voo alterado);
 
 }
