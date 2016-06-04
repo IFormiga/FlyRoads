@@ -1,5 +1,5 @@
+package negocio;
 import dados.IRepositorioVoo;
-import negocio.Voo;
 
 public class CadastroVoo {
 	private IRepositorioVoo repositorio;
