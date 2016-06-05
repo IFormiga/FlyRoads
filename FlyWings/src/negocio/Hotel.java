@@ -3,13 +3,13 @@ package negocio;
 public class Hotel {
 
 	public String endereço;
-	public int CEP;
+	public String CEP;
     public String nome_hotel;
     public boolean quarto_disp;
     
     
 	
-    public Hotel(String endereço, int cEP, String nome_hotel,boolean quarto_disp) {
+    public Hotel(String endereço, String cEP, String nome_hotel,boolean quarto_disp) {
 		
 		this.endereço = endereço;
 		CEP = cEP;
@@ -22,10 +22,10 @@ public class Hotel {
 	public void setEndereço(String endereço) {
 		this.endereço = endereço;
 	}
-	public int getCEP() {
+	public String getCEP() {
 		return CEP;
 	}
-	public void setCEP(int cEP) {
+	public void setCEP(String cEP) {
 		CEP = cEP;
 	}
 	public String getNome_Hotel() {

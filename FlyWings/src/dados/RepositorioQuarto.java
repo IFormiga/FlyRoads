@@ -22,7 +22,7 @@ public class RepositorioQuarto {
 	   	}
 	   	else
 	   	{
-	   		QEException qee = new QEException(quarto1.getNumero_quarto(),quarto1.status_quarto);
+	   		QEException qee = new QEException(quarto1.getNumero_quarto(),quarto1.Status_Quarto(quarto1.getNumero_quarto()));
 	   		throw qee;
 	   	}
 	   		
