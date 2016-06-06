@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import negocio.Passagem;
-public class RepositorioPassagens {
+public class RepositorioPassagens implements IRepositorioPassagem {
 	private List<Passagem> listaPassagens = new ArrayList<Passagem>();
 	
 	public RepositorioPassagens(){
@@ -60,6 +60,18 @@ public class RepositorioPassagens {
 				System.out.println("---------------------------------------");
 			}
 		}
+	}
+	
+	public boolean existePassagem(String codigo){
+		boolean r = false;
+		String cod;
+		for(Passagem passagem1 : listaPassagens){
+			cod = passagem1.getCodigo();
+			if(cod.equals(codigo)){
+				r = true;
+			}
+		}
+		return r;
 	}
 	
 	public boolean removerPassagem(String codigo){

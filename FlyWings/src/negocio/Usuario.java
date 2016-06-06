@@ -3,7 +3,7 @@ package negocio;
 public class Usuario extends Pessoa {
 	private String nick;
 	private String senha;
-	private String dica_de_senha; //Podemos consertar o problema de Usuário mestre com um booleano de autenticação
+	private String dica_de_senha;
 	private boolean confirmacao = false;
 	protected static String senha_mestre = "123456";
 	
@@ -14,12 +14,15 @@ public class Usuario extends Pessoa {
 		this.verificaHierarquia(senha);
 		this.setDica(dica_de_senha);
 	}
-	public void verificaHierarquia(String senha){
+	private void verificaHierarquia(String senha){
 		boolean r = false;
 		if(senha.equals(Usuario.senha_mestre)){
 		r = true;
 		}
 		this.confirmacao = r;
+	}
+	public boolean getConfirmacao() {
+		return confirmacao;
 	}
 	public String getNick(){
 		return this.nick;

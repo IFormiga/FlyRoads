@@ -10,6 +10,8 @@ public interface IRepositorioPassagem {
 			Passagem alterado);
 
 	public abstract void listarPassagens();
+	
+	public abstract boolean existePassagem(String codigo);
 
 	public abstract void procurarPassagem(String codigo);
 
