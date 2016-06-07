@@ -1,5 +1,7 @@
 package dados;
 
+import java.util.List;
+
 import negocio.Usuario;
 
 public interface IRepositorioUsuario {
@@ -14,6 +16,6 @@ public interface IRepositorioUsuario {
 	
 	public abstract boolean existeUsuario(String cpf);
 
-	public abstract void listarUsuarios();
+	public abstract List<Usuario> listaUsuarios();
 
 }

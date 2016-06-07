@@ -1,6 +1,7 @@
 package dados;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import negocio.Usuario;
@@ -49,13 +50,6 @@ public class RepositorioUsuarios implements IRepositorioUsuario{
 		for(Usuario user1 : listaUsuarios){
 			if(user1.getCpf().equals(cpf)){
 			user = user1;
-			System.out.println("---------------------------------------");
-			System.out.println("Nome do cliente: "+user1.getNome());
-			System.out.println("CPF: "+user1.getCpf());
-			System.out.println("Idade: "+user1.getIdade());
-			System.out.println("Sexo: "+user1.getSexo());
-			System.out.println("Nick: "+user1.getNick());
-			System.out.println("---------------------------------------");
 			}
 		}
 		return user;
@@ -71,15 +65,7 @@ public class RepositorioUsuarios implements IRepositorioUsuario{
 		return r;
 	}
 	
-	public void listarUsuarios(){
-		for(Usuario user1 : listaUsuarios){
-			System.out.println("---------------------------------------");
-			System.out.println("Nome do cliente: "+user1.getNome());
-			System.out.println("CPF: "+user1.getCpf());
-			System.out.println("Idade: "+user1.getIdade());
-			System.out.println("Sexo: "+user1.getSexo());
-			System.out.println("Nick: "+user1.getNick());
-			System.out.println("---------------------------------------");
-		}
+	public List<Usuario> listaUsuarios(){
+		return Collections.unmodifiableList(this.listaUsuarios);
 	}
 }
