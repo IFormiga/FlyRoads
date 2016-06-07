@@ -4,12 +4,21 @@ public class Empresa {
 
 	public String nome_empresa;
 	public String cnpj;
+	public String ramo;
 	
-	public Empresa(String nome_empresa, String cnpj){
+	public Empresa(String nome_empresa, String cnpj, String ramo){
 		this.nome_empresa = nome_empresa;
 		this.cnpj = cnpj;
 	}
 	
+	public String getRamo() {
+		return ramo;
+	}
+
+	public void setRamo(String ramo) {
+		this.ramo = ramo;
+	}
+
 	public String getNome_empresa() {
 		return nome_empresa;
 	}
@@ -24,10 +33,9 @@ public class Empresa {
 	}	
 	
 	public String toString() {
-		return "Empresa [nome_empresa=" + nome_empresa + ", cnpj=" + cnpj + "]";
+		return "Empresa [nome_empresa=" + nome_empresa + ", cnpj=" + cnpj + ", ramo=" + ramo + "]";
 	}
-	
-	
+
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -36,9 +44,21 @@ public class Empresa {
 		if (getClass() != obj.getClass())
 			return false;
 		Empresa other = (Empresa) obj;
-		
-		if (cnpj != other.cnpj)
+		if (cnpj == null) {
+			if (other.cnpj != null)
+				return false;
+		} else if (!cnpj.equals(other.cnpj))
+			return false;
+		if (nome_empresa == null) {
+			if (other.nome_empresa != null)
+				return false;
+		} else if (!nome_empresa.equals(other.nome_empresa))
+			return false;
+		if (ramo == null) {
+			if (other.ramo != null)
+				return false;
+		} else if (!ramo.equals(other.ramo))
 			return false;
 		return true;
-	}	
+	}
 }

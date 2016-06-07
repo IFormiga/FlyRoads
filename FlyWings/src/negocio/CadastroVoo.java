@@ -19,9 +19,16 @@ public class CadastroVoo {
 		      }
 		    }
 	}
+	
+	public void removerVoo(){
+		
+	}
+	
 	public Voo procurar(int cod){
 		return this.repositorio.procurarVoo(cod);
 	}
+	public 
+	
 
 
 }

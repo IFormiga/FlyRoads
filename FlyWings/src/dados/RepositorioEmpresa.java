@@ -9,12 +9,12 @@ import negocio.Empresa;
 
 
 
-public class RepositorioEmpresa {
+public class RepositorioEmpresa implements IRepositorioEmpresa{
 
 	private List<Empresa> listaEmpresa = new ArrayList<Empresa>();
 	
 	
-	public void SalvarEmpresa(Empresa empresa1)throws EEException
+	public void cadastrarEmpresa(Empresa empresa1)throws EEException
 	{
 	   	if(empresa1 != null)
 	   	{
@@ -23,55 +23,40 @@ public class RepositorioEmpresa {
         	   EEException eee = new EEException(empresa1.getNome_empresa(), empresa1.getCnpj());
  	   		   throw eee;
            }
-	   		
            listaEmpresa.add(empresa1);
-	   	
 	   	}
-	   	
 	}
 	
-	public void DeletarEmpresa(Empresa empresa1)throws ENException
+	public void deletarEmpresa(Empresa empresa1)throws ENException
 	{
-		
 	    if(listaEmpresa.contains(empresa1))
 			{
-				
 	    	    listaEmpresa.remove(empresa1);
 			}
-	    
 	    else if(!listaEmpresa.contains(empresa1))
 	    {
 	    	ENException ene = new ENException(empresa1.getNome_empresa(), empresa1.getCnpj());
 	   		   throw ene;
 	    }
-			
-		
-		
 	}
 	
-	public void ProcurarEmpresa(Empresa empresa1)throws ENException
-	{
-	   
-		
-			if(listaEmpresa.contains(empresa1))
-			{
-				
-				System.out.println(empresa1.toString());
+	public Empresa procurarEmpresa(String nome_da_empresa, String cnpj)throws ENException{
+		String cnpj2;
+		Empresa r = null;
+		for(Empresa empresa2 : this.listaEmpresa){
+			cnpj2 = empresa2.getCnpj();
+			if(cnpj2.equals(cnpj)){
+				r = empresa2;
 			}
-		
-		
-		else if(!listaEmpresa.contains(empresa1))
-		{
-			
-			ENException ene = new ENException(empresa1.getNome_empresa(), empresa1.getCnpj());
-	   		throw ene;
-	   		
-		     	
 		}
-	
+			if(r == null){
+			ENException ene = new ENException(nome_da_empresa, cnpj);
+	   		throw ene;	     	
+		}
+		return r;	
 	}
 	
-	public boolean AtualizarEmpresa(Empresa empresa_para_alt, Empresa emp_alt)
+	public boolean atualizarEmpresa(Empresa empresa_para_alt, Empresa emp_alt)
 	{
 		boolean r = false;
 		if(listaEmpresa.contains(empresa_para_alt))
@@ -79,13 +64,20 @@ public class RepositorioEmpresa {
 			listaEmpresa.remove(empresa_para_alt);
 			listaEmpresa.add(emp_alt);
 			r = true;
-			
-			
 		}
-		
+		return r;
+	}
+
+	public boolean existeEmpresa(String cnpj) {
+		boolean r = false;
+		String cnpj2;
+		for(Empresa empresa2 : this.listaEmpresa){
+			cnpj2 = empresa2.getCnpj();
+			if(cnpj2.equals(cnpj)){
+				r = true;
+			}
+		}	
 		return r;
 	} 
-	
-	
 }
 

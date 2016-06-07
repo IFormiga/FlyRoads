@@ -1,10 +1,11 @@
 package dados;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import negocio.Passagem;
-public class RepositorioPassagens {
+public class RepositorioPassagens implements IRepositorioPassagem {
 	private List<Passagem> listaPassagens = new ArrayList<Passagem>();
 	
 	public RepositorioPassagens(){
@@ -31,35 +32,32 @@ public class RepositorioPassagens {
 		return r;
 	}
 	
-	public void listarPassagens(){
-		for(Passagem passagem1 : listaPassagens){
-			System.out.println("Nome do cliente: "+passagem1.getUser().getNome());
-			System.out.println("Código da passagem: "+passagem1.getCodigo());
-			System.out.println("Assento: "+passagem1.getAssento());
-			System.out.println("Saindo de: "+passagem1.getFlight().getOrigem());
-			System.out.println("Destino: "+passagem1.getFlight().getDestino());
-			System.out.println("Hora de Saida: "+passagem1.getFlight().getSaida());
-			System.out.println("Hora de Chegada: "+passagem1.getFlight().getChegada());
-			System.out.println("---------------------------------------");
-		}
+	public List<Passagem> listaPassagens(){
+		return Collections.unmodifiableList(this.listaPassagens);
 	}
 	
-	public void procurarPassagem(String codigo){
+	public Passagem procurarPassagem(String codigo){
+		String cod;
+		Passagem r = null;
+		for(Passagem passagem1 : listaPassagens){
+			cod = passagem1.getCodigo();
+			if(cod.equals(codigo)){
+				r = passagem1;
+			}
+		}
+		return r;
+	}
+	
+	public boolean existePassagem(String codigo){
+		boolean r = false;
 		String cod;
 		for(Passagem passagem1 : listaPassagens){
 			cod = passagem1.getCodigo();
 			if(cod.equals(codigo)){
-				System.out.println("---------------------------------------");
-				System.out.println("Nome do cliente: "+passagem1.getUser().getNome());
-				System.out.println("Código da passagem: "+passagem1.getCodigo());
-				System.out.println("Assento: "+passagem1.getAssento());
-				System.out.println("Saindo de: "+passagem1.getFlight().getOrigem());
-				System.out.println("Destino: "+passagem1.getFlight().getDestino());
-				System.out.println("Hora de Saida: "+passagem1.getFlight().getSaida());
-				System.out.println("Hora de Chegada: "+passagem1.getFlight().getChegada());
-				System.out.println("---------------------------------------");
+				r = true;
 			}
 		}
+		return r;
 	}
 	
 	public boolean removerPassagem(String codigo){
