@@ -1,6 +1,7 @@
 package dados;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import negocio.Voo;
@@ -30,16 +31,8 @@ public class RepositorioVoos implements IRepositorioVoo{
 		}
 		return r;
 	}
-	public void listarVoos(){
-		for(Voo voo2 : listaVoos){
-			System.out.println("Nome da Empresa: "+voo2.getNome_empresa());
-			System.out.println("Código do voo: "+voo2.getCodigo_do_voo());
-			System.out.println("Origem: "+voo2.getOrigem());
-			System.out.println("Destino: "+voo2.getDestino());
-			System.out.println("Hora de Saida: "+voo2.getSaida());
-			System.out.println("Hora de Chegada: "+voo2.getChegada());
-			System.out.println("---------------------------------------");
-		}
+	public List<Voo> listaVoos(){
+		return Collections.unmodifiableList(this.listaVoos);
 	}
 	
 	public Voo procurarVoo(int codigo_do_voo){
@@ -48,13 +41,6 @@ public class RepositorioVoos implements IRepositorioVoo{
 		for(Voo voo2 : listaVoos){
 			cod = voo2.getCodigo_do_voo();
 			if(cod == codigo_do_voo){
-				System.out.println("Nome da Empresa: "+voo2.getNome_empresa());
-				System.out.println("Código do voo: "+voo2.getCodigo_do_voo());
-				System.out.println("Origem: "+voo2.getOrigem());
-				System.out.println("Destino: "+voo2.getDestino());
-				System.out.println("Hora de Saida: "+voo2.getSaida());
-				System.out.println("Hora de Chegada: "+voo2.getChegada());
-				System.out.println("---------------------------------------");	
 				r = voo2;
 			}
 		}
@@ -67,14 +53,7 @@ public class RepositorioVoos implements IRepositorioVoo{
 		for(Voo voo2 : listaVoos){
 			cod = voo2.getCodigo_do_voo();
 			if(cod == codigo_do_voo){
-				r = true;
-				System.out.println("Nome da Empresa: "+voo2.getNome_empresa());
-				System.out.println("Código do voo: "+voo2.getCodigo_do_voo());
-				System.out.println("Origem: "+voo2.getOrigem());
-				System.out.println("Destino: "+voo2.getDestino());
-				System.out.println("Hora de Saida: "+voo2.getSaida());
-				System.out.println("Hora de Chegada: "+voo2.getChegada());
-				System.out.println("---------------------------------------");	
+				r = true;	
 			}
 		}
 		return r;

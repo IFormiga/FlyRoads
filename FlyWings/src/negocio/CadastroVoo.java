@@ -1,4 +1,6 @@
 package negocio;
+import java.util.List;
+
 import dados.IRepositorioVoo;
 
 public class CadastroVoo {
@@ -7,7 +9,8 @@ public class CadastroVoo {
 	public CadastroVoo(IRepositorioVoo instanciaRepositorio){
 		this.repositorio = instanciaRepositorio;
 	}
-	public void cadastrarVoo(Voo v){
+	
+	public void cadastrarVoo(Voo v) /*throws VooJaExisteException*/{
 		  if (v != null && (this.repositorio.existe(v.getCodigo_do_voo()) == false)) {
 		        this.repositorio.cadastrarVoo(v);
 		      } 
@@ -23,14 +26,12 @@ public class CadastroVoo {
 		      }
 	}
 	
-	
-	
-	public void removerVoo(Voo v){
+	public void removerVoo(Voo v) /*throw VooNaoExisteException*/{
 		  if (v == null) {
 		    } 
 		  else {
 		      if (this.repositorio.existe(v.getCodigo_do_voo()) == false) {
-		        this.repositorio.cadastrarVoo(v);
+		        this.repositorio.removerVoo(v.getCodigo_do_voo());
 		      } 
 		      else {
 		        //throw new VooJaExisteException(c.getNumero());
@@ -38,11 +39,30 @@ public class CadastroVoo {
 		    }
 	}
 	
-	public Voo procurar(int cod){
+	public Voo procurar(int cod)/*throw VooNaoExisteException*/{
+		if(this.repositorio.existe(cod) == true){
 		return this.repositorio.procurarVoo(cod);
+		}
+		else{
+			return null;
+			//throw new VooNaoExisteException;
+		}
 	}
-	public 
 	
-
-
+	public List<Voo> listaVoo(){
+		return this.listaVoo();
+	}
+	
+	public void alterarVoo(Voo voo_alterado, Voo voo2){
+		if(voo_alterado != null && voo2 != null){
+			this.repositorio.alterarVoo(voo_alterado, voo2);
+		}
+		else{
+			if(voo_alterado == null || voo2 == null){
+	    		  IllegalArgumentException x = new IllegalArgumentException("");
+	    		  throw x;	
+			}
+		}
+	}
+	
 }
