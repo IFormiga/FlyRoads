@@ -43,18 +43,19 @@ public class RepositorioQuarto {
 		}
 	}
 	
-	public void ProcurarQuarto(Quarto quarto1)throws QNException //Tem que retornar um quarto
+	public Quarto ProcurarQuarto(Quarto quarto1)throws QNException //Tem que retornar um quarto
 	{
+		
 		if(listaQuartos.contains(quarto1))
 		{
-			System.out.println(quarto1.toString());
-		}
+			return quarto1;
+		 }
 		else
 		{
 			QNException qne = new QNException(quarto1.getNumero_quarto(),quarto1.status_quarto);
 	   		throw qne;
 		}
-			
+		
 	}
 	
 	public void AtualizarQuarto(Quarto quarto_para_alt, Quarto quarto_alt) throws QEException, QNException
@@ -84,6 +85,23 @@ public class RepositorioQuarto {
 	
 		
 	} 
+	
+	public boolean existe(String numero_quarto)
+	{
+		boolean verifica = false;
+		for (Quarto quarto : listaQuartos) 
+		{
+			if(quarto.Status_Quarto(numero_quarto))
+			{
+                   verifica = true;
+                   return verifica;
+	     	}
+	}
+		return verifica;
+	}
+	
+	
+	
 	
 	
 	
