@@ -8,32 +8,36 @@ import exceptions.QNException;
 import negocio.Quarto;
 
 
-public class RepositorioQuarto {
+public class RepositorioQuarto implements IRepositorioQuarto {
 
 	public List<Quarto> listaQuartos = new ArrayList<Quarto>();
 	
 	//Criar um método listarQuartos
 	
-	public void SalvarQuarto(Quarto quarto1) throws QEException
+	public boolean SalvarQuarto(Quarto quarto1) throws QEException
 	{
-	   	if(!listaQuartos.contains(quarto1))
+	   	boolean resultado = false;
+		if(!listaQuartos.contains(quarto1))
 	   	{
 		   listaQuartos.add(quarto1);
+		   resultado = true;
 	   	}
 	   	else
 	   	{
 	   		QEException qee = new QEException(quarto1.getNumero_quarto(),quarto1.Status_Quarto(quarto1.getNumero_quarto()));
 	   		throw qee;
 	   	}
+		return resultado;
 	   		
 	}
 	
-	public void DeletarQuarto(Quarto quarto1)throws QNException
+	public boolean DeletarQuarto(Quarto quarto1)throws QNException
 	{
-		
+		boolean resultado = false;
 	    if(listaQuartos.contains(quarto1))
 			{
 				listaQuartos.remove(quarto1);
+				resultado = true;
 				
 			}
 		else
@@ -41,6 +45,7 @@ public class RepositorioQuarto {
 			QNException qne = new QNException(quarto1.getNumero_quarto(),quarto1.status_quarto);
 	   		throw qne;
 		}
+	    return resultado;
 	}
 	
 	public Quarto ProcurarQuarto(Quarto quarto1)throws QNException //Tem que retornar um quarto
@@ -58,9 +63,9 @@ public class RepositorioQuarto {
 		
 	}
 	
-	public void AtualizarQuarto(Quarto quarto_para_alt, Quarto quarto_alt) throws QEException, QNException
+	public boolean AtualizarQuarto(Quarto quarto_para_alt, Quarto quarto_alt) throws QEException, QNException
 	{
-		
+		boolean resultado = false;
 		if((listaQuartos.contains(quarto_para_alt)))
 		{
 		
@@ -69,6 +74,7 @@ public class RepositorioQuarto {
 			if(!listaQuartos.contains(quarto_alt))
 		{
 		  listaQuartos.add(quarto_alt);
+		  resultado = true;
 		}
 			else
 			{
@@ -83,7 +89,7 @@ public class RepositorioQuarto {
 	   		throw qne;
 		}
 	
-		
+		return resultado;
 	} 
 	
 	public boolean existe(String numero_quarto)
@@ -114,7 +120,7 @@ public class RepositorioQuarto {
 		return verifica;
 	}
 	
-	public Quarto procurar(String numero_quarto) throws QNException
+	public Quarto procurar(String numero_quarto) 
 	{
 		Quarto resultado = null;
 		for (Quarto quarto : listaQuartos) {
