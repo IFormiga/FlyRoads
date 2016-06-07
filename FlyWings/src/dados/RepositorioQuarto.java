@@ -100,9 +100,37 @@ public class RepositorioQuarto {
 		return verifica;
 	}
 	
+	public boolean remover(String numero_quarto)
+	{
+		boolean verifica = false;
+		for (Quarto quarto : listaQuartos) {
+			if(quarto.quartovazio(numero_quarto))
+			{
+			   listaQuartos.remove(quarto);
+			   verifica = true;
+			   return verifica;
+			}
+		}
+		return verifica;
+	}
+	
+	public Quarto procurar(String numero_quarto) throws QNException
+	{
+		Quarto resultado = null;
+		for (Quarto quarto : listaQuartos) {
+			if(this.existe(numero_quarto))
+			{
+				 resultado = quarto;
+				 return resultado;
+			}
+		}
+		return resultado;
+		}
+		
+	}
 	
 	
 	
 	
 	
-}
+

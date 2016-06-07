@@ -23,13 +23,13 @@ public class Quarto {
 		this.numero_quarto = numero_quarto;
 		this.status_quarto = status_quarto;
 	}
-	public boolean quartovazio(int numero_quarto)
+	public boolean quartovazio(String numero_quarto)
 	{
 		status_quarto = true;
 		return status_quarto;
 	}
 	
-	public boolean quartoocupado(int numero_quarto)
+	public boolean quartoocupado(String numero_quarto)
 	{
 		status_quarto = true;
 		return status_quarto;

@@ -27,7 +27,7 @@ public class CadastroVoo {
 	public Voo procurar(int cod){
 		return this.repositorio.procurarVoo(cod);
 	}
-	public 
+	
 	
 
 
