@@ -2,6 +2,7 @@ package negocio;
 
 import dados.IRepositorioQuarto;
 import exceptions.QEException;
+import exceptions.QNException;
 
 public class CadastroQuarto {
 
@@ -12,9 +13,9 @@ public class CadastroQuarto {
 		this.repositorio = repositorio;
 	}
 	
-	public void CadastrarQuarto(Quarto quarto1) throws QEException
+	public void CadastrarQuarto(Quarto quarto1) throws QEException, QNException
 	{
-		if(!this.repositorio.existe(quarto1))
+		if(repositorio.ProcurarQuarto(quarto1) != null)
 		{
 			this.repositorio.SalvarQuarto(quarto1);
 		}
@@ -26,6 +27,8 @@ public class CadastroQuarto {
 		{
 			throw new QEException(quarto1.getNumero_quarto(),quarto1.Status_Quarto(quarto1.getNumero_quarto()));
 		}
+		
+		
 			
 		
 	}

@@ -3,14 +3,14 @@ package negocio;
 public class Quarto {
 
 	
-	public int numero_quarto;
+	public String numero_quarto;
 	public boolean status_quarto;
 	
 	
-	public int getNumero_quarto() {
+	public String getNumero_quarto() {
 		return numero_quarto;
 	}
-	public void setNumero_quarto(int numero_quarto) {
+	public void setNumero_quarto(String numero_quarto) {
 		this.numero_quarto = numero_quarto;
 	}
 	
@@ -18,7 +18,7 @@ public class Quarto {
 		return "Quarto [numero_quarto=" + numero_quarto + ", status_quarto="
 				+ status_quarto + "]";
 	}
-	public Quarto(int numero_quarto, boolean status_quarto) {
+	public Quarto(String numero_quarto, boolean status_quarto) {
 		
 		this.numero_quarto = numero_quarto;
 		this.status_quarto = status_quarto;
@@ -35,7 +35,7 @@ public class Quarto {
 		return status_quarto;
 	}
 	
-	public boolean Status_Quarto(int numero_quarto)
+	public boolean Status_Quarto(String numero_quarto)
 	{
 		return status_quarto;
 	}

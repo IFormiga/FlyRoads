@@ -6,7 +6,7 @@ public class QEException extends Exception {
 	private boolean status_quarto;
 	
 	public QEException(String numero_quarto, boolean status_quarto) {
-		super("Quarto existe");
+		super("Quarto ja existe");
 		this.numero_quarto = numero_quarto;
 		this.status_quarto = status_quarto;
 	}
