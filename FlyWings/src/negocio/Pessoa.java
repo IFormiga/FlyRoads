@@ -1,6 +1,6 @@
 package negocio;
 
-public class Pessoa {
+abstract class Pessoa {
 	private String nome;
 	private String cpf;
 	private	int idade;

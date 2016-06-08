@@ -3,10 +3,10 @@ import java.util.List;
 
 import dados.IRepositorioVoo;
 
-public class CadastroVoo {
+public class ControladorVoo {
 	private IRepositorioVoo repositorio;
 	
-	public CadastroVoo(IRepositorioVoo instanciaRepositorio){
+	public ControladorVoo(IRepositorioVoo instanciaRepositorio){
 		this.repositorio = instanciaRepositorio;
 	}
 	
