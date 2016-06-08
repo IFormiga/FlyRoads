@@ -1,5 +1,10 @@
 package exceptions;
 
+/**
+ * Empresa não existe exception
+ * @author Igor Formiga
+ *
+ */
 public class ENException extends Exception {
 
 	private String cnpj;
