@@ -40,6 +40,8 @@ public class Quarto {
 		return status_quarto;
 	}
 	
+
+	
 	
 	public boolean equals(Object obj) {
 		if (this == obj)

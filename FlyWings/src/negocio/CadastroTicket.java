@@ -13,41 +13,35 @@ public class CadastroTicket {
 		this.repositorio = repositorio;
 	}
 	
-	public void CadastrarTicket(Ticket_Hotel ticket1) throws TEException
+	public void CadastrarTicket(String numero_quarto) 
 	{
-		if(ticket1 == null)
+		if(numero_quarto == null)
 		{
 			throw new IllegalArgumentException("Parâmetro inválido");
 		}
-		else if(!repositorio.existe(ticket1))
+		else if(!repositorio.existe(numero_quarto))
 		{
-			this.repositorio.SalvarTicket(ticket1);
+			repositorio.cadastrar(numero_quarto);
 		}
 		
-		else
-		{
-			throw new TEException(ticket1.getData_entrada(),ticket1.getData_saida(),ticket1.getQuarto(),ticket1.getPeriodo_data());
-		}
+		
 		
   		
 	}
 	
-    public void DescadastrarTicket(Ticket_Hotel ticket1) throws TNException
+    public void DescadastrarTicket(String numero_quarto) 
     {
     	
-    	if(ticket1 == null)
+    	if(numero_quarto == null)
     	{
     		throw new IllegalArgumentException("Parâmetro inválido");
     	}
-    	else if(repositorio.existe(ticket1))
+    	else if(repositorio.existe(numero_quarto))
     	{
-    		repositorio.existe(ticket1);
+    		repositorio.remover(numero_quarto);
     	}
     	
-    	else
-    	{
-    		throw new TNException(ticket1.getData_entrada(),ticket1.getData_saida(),ticket1.getQuarto(),ticket1.getPeriodo_data());
-    	}
+    	
     }
 	
         
