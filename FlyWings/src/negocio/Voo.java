@@ -1,7 +1,6 @@
 package negocio;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.util.Arrays;
 
 public class Voo {
 	private String nomeEmpresa;
@@ -96,6 +95,7 @@ public class Voo {
 		this.destino = destino;
 	}
 
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -104,15 +104,26 @@ public class Voo {
 		if (getClass() != obj.getClass())
 			return false;
 		Voo other = (Voo) obj;
+		if (!Arrays.equals(assentos, other.assentos))
+			return false;
 		if (chegada == null) {
 			if (other.chegada != null)
 				return false;
 		} else if (!chegada.equals(other.chegada))
 			return false;
+		if (codigoDoVoo != other.codigoDoVoo)
+			return false;
 		if (destino == null) {
 			if (other.destino != null)
 				return false;
 		} else if (!destino.equals(other.destino))
+			return false;
+		if (nomeEmpresa == null) {
+			if (other.nomeEmpresa != null)
+				return false;
+		} else if (!nomeEmpresa.equals(other.nomeEmpresa))
+			return false;
+		if (numAssentos != other.numAssentos)
 			return false;
 		if (origem == null) {
 			if (other.origem != null)
@@ -127,10 +138,14 @@ public class Voo {
 		return true;
 	}
 
+	@Override
 	public String toString() {
-		return "Voo [saida=" + saida + ", chegada=" + chegada + ", data_origem=" + dataOrigem + ", data_destino="
-				+ dataDestino + ", origem=" + origem + ", destino=" + destino + "]";
-	}	
+		return "Voo [nomeEmpresa=" + nomeEmpresa + ", codigoDoVoo=" + codigoDoVoo + ", chegada=" + chegada + ", saida="
+				+ saida + ", origem=" + origem + ", destino=" + destino + ", assentos=" + Arrays.toString(assentos)
+				+ ", numAssentos=" + numAssentos + "]";
+	}
+
+		
 	
 	
 }
