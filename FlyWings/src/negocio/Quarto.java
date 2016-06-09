@@ -1,6 +1,6 @@
 package negocio;
 
-public class Quarto {
+public class Quarto /* FAÇA O DIABO DOS QUARTOS DENTRO DE HOTEL =) DEPOIS VEJA AI =)*/ {
 
 	
 	public String numero_quarto;

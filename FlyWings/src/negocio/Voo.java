@@ -1,48 +1,47 @@
 package negocio;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 public class Voo {
-	private String nome_empresa;
-	private int codigo_do_voo;
-	private LocalTime saida;
-	private LocalTime chegada;
-	private LocalDate data_origem;
-	private LocalDate data_destino;
+	private String nomeEmpresa;
+	private int codigoDoVoo;
+	private LocalDateTime chegada;
+	private LocalDateTime saida;
 	private String origem;
 	private String destino;
 	private String assentos[] = {"1A","2A","3A","1B","2B","3B"};
-	private int num_assentos = assentos.length;
+	private int numAssentos = assentos.length;
 	
-	public Voo(int hora_saida, int min_saida, int hora_chegada, int min_chegada, String origem, String destino, int ano1, int mes1, int dia1, int ano2, int mes2, int dia2, int codigo){
+	public Voo(int horaSaida, int minSaida, int horaChegada, int minChegada, String origem,
+			String destino, int anoSaida, int mesSaida, int diaSaida, int anoChegada, 
+			int mesChegada, int diaChegada, int codigo){
 		this.origem = origem;
 		this.destino = destino;
-		this.saida = LocalTime.of(hora_saida, min_saida);
-		this.chegada = LocalTime.of(hora_chegada, min_chegada);
-		this.data_origem = LocalDate.of(ano1, mes1, dia1);
-		this.data_destino = LocalDate.of(ano2, mes2, dia2);
-		this.codigo_do_voo = codigo;
+		this.saida = LocalDateTime.of(anoSaida, mesSaida, diaSaida, horaSaida, minSaida);
+		this.chegada = LocalDateTime.of(anoChegada, mesChegada, diaChegada, horaChegada, minChegada);
+		this.codigoDoVoo = codigo;
 	}
 	
 	public int numAssentos(){
-		return this.num_assentos;
+		return this.numAssentos;
 	}
 	
 	public int getCodigo_do_voo() {
-		return codigo_do_voo;
+		return codigoDoVoo;
 	}
 
 
 	public String getNome_empresa() {
-		return nome_empresa;
+		return nomeEmpresa;
 	}
 
 	public void setNome_empresa(String nome_empresa) {
-		this.nome_empresa = nome_empresa;
+		this.nomeEmpresa = nome_empresa;
 	}
 
 	public void setCodigo_do_voo(int codigo_do_voo) {
-		this.codigo_do_voo = codigo_do_voo;
+		this.codigoDoVoo = codigo_do_voo;
 	}
 
 
@@ -65,19 +64,19 @@ public class Voo {
 		return r;
 	}
 	
-	public LocalTime getSaida() {
+	public LocalDateTime getSaida() {
 		return saida;
 	}
 
-	public void setSaida(LocalTime saida) {
+	public void setSaida(LocalDateTime saida) {
 		this.saida = saida;
 	}
 
-	public LocalTime getChegada() {
+	public LocalDateTime getChegada() {
 		return chegada;
 	}
 
-	public void setChegada(LocalTime chegada) {
+	public void setChegada(LocalDateTime chegada) {
 		this.chegada = chegada;
 	}
 
@@ -95,23 +94,6 @@ public class Voo {
 
 	public void setDestino(String destino) {
 		this.destino = destino;
-	}
-	
-
-	public LocalDate getData_origem() {
-		return data_origem;
-	}
-
-	public void setData_origem(LocalDate data_origem) {
-		this.data_origem = data_origem;
-	}
-
-	public LocalDate getData_destino() {
-		return data_destino;
-	}
-
-	public void setData_destino(LocalDate data_destino) {
-		this.data_destino = data_destino;
 	}
 
 	public boolean equals(Object obj) {
@@ -146,8 +128,8 @@ public class Voo {
 	}
 
 	public String toString() {
-		return "Voo [saida=" + saida + ", chegada=" + chegada + ", data_origem=" + data_origem + ", data_destino="
-				+ data_destino + ", origem=" + origem + ", destino=" + destino + "]";
+		return "Voo [saida=" + saida + ", chegada=" + chegada + ", data_origem=" + dataOrigem + ", data_destino="
+				+ dataDestino + ", origem=" + origem + ", destino=" + destino + "]";
 	}	
 	
 	

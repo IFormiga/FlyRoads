@@ -2,12 +2,12 @@ package negocio;
 
 public class Empresa {
 
-	public String nome_empresa;
+	public String nomeEmpresa;
 	public String cnpj;
 	public String ramo;
 	
-	public Empresa(String nome_empresa, String cnpj, String ramo){
-		this.nome_empresa = nome_empresa;
+	public Empresa(String nomeEmpresa, String cnpj, String ramo){
+		this.nomeEmpresa = nomeEmpresa;
 		this.cnpj = cnpj;
 	}
 	
@@ -19,11 +19,11 @@ public class Empresa {
 		this.ramo = ramo;
 	}
 
-	public String getNome_empresa() {
-		return nome_empresa;
+	public String getNomeEmpresa() {
+		return nomeEmpresa;
 	}
-	public void setNome_empresa(String nome_empresa) {
-		this.nome_empresa = nome_empresa;
+	public void setNomeEmpresa(String nome_empresa) {
+		this.nomeEmpresa = nome_empresa;
 	}
 	public String getCnpj() {
 		return cnpj;
@@ -32,10 +32,12 @@ public class Empresa {
 		this.cnpj = cnpj;
 	}	
 	
+	@Override
 	public String toString() {
-		return "Empresa [nome_empresa=" + nome_empresa + ", cnpj=" + cnpj + ", ramo=" + ramo + "]";
+		return "Empresa [nomeEmpresa=" + nomeEmpresa + ", cnpj=" + cnpj + ", ramo=" + ramo + "]";
 	}
 
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -49,10 +51,10 @@ public class Empresa {
 				return false;
 		} else if (!cnpj.equals(other.cnpj))
 			return false;
-		if (nome_empresa == null) {
-			if (other.nome_empresa != null)
+		if (nomeEmpresa == null) {
+			if (other.nomeEmpresa != null)
 				return false;
-		} else if (!nome_empresa.equals(other.nome_empresa))
+		} else if (!nomeEmpresa.equals(other.nomeEmpresa))
 			return false;
 		if (ramo == null) {
 			if (other.ramo != null)
@@ -61,4 +63,6 @@ public class Empresa {
 			return false;
 		return true;
 	}
+
+	
 }

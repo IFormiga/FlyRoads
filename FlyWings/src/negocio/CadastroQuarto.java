@@ -4,7 +4,7 @@ import dados.IRepositorioQuarto;
 import exceptions.QEException;
 import exceptions.QNException;
 
-public class CadastroQuarto {
+public class CadastroQuarto /**/{
 
 	private IRepositorioQuarto repositorio;
 
