@@ -1,5 +1,6 @@
 package negocio;
 
+import java.io.*;
 import java.util.List;
 
 import dados.IRepositorioPassagem;

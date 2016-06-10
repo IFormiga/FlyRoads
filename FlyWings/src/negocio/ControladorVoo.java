@@ -11,32 +11,47 @@ public class ControladorVoo {
 	}
 	
 	public void cadastrarVoo(Voo v) /*throws VooJaExisteException*/{
-		  if (v != null && (this.repositorio.existe(v.getCodigo_do_voo()) == false)) {
-		        this.repositorio.cadastrarVoo(v);
-		      } 
-		      else {
-		    	  if(v == null){
-		    		  IllegalArgumentException x = new IllegalArgumentException("");
-		    		  throw x;
-		    	  }
-		    	  else{
-		    		  //VooJaExisteException z = new VooJaExisteException();
-		    		  //throw z;
-		    	  }
+		List<Voo> listaVoos = this.listaVoo();
+		boolean verificacao = false;
+		
+		if (v != null && this.repositorio.existe(v.getCodigo_do_voo()) == false) {
+			for(Voo voo : listaVoos){
+				if((v.getOrigem().equals(voo.getOrigem()) && v.getSaida().equals(voo.getSaida())) || (v.getDestino().equals(voo.getDestino()) && v.getChegada().equals(voo.getChegada()))){
+					verificacao = true;
+				}
+			}
+			if(verificacao == false){
+				this.repositorio.cadastrarVoo(v);
+			}
+			if(verificacao == true){
+				//JaExisteVooNesseHorarioException m = new JaExisteVooNesseHorarioException();
+				//throw m;
+			}
+		} 
+			else {
+				if(v == null){
+					IllegalArgumentException x = new IllegalArgumentException("");
+					throw x;
+				}
+					else{
+						//VooJaExisteException z = new VooJaExisteException();
+						//throw z;
+					}
 		      }
 	}
 	
 	public void removerVoo(Voo v) /*throw VooNaoExisteException*/{
 		  if (v == null) {
-		    } 
-		  else {
-		      if (this.repositorio.existe(v.getCodigo_do_voo()) == false) {
-		        this.repositorio.removerVoo(v.getCodigo_do_voo());
-		      } 
-		      else {
-		        //throw new VooJaExisteException(c.getNumero());
-		      }
-		    }
+			  throw new IllegalArgumentException("");
+		  } 
+		  else{
+			  if (this.repositorio.existe(v.getCodigo_do_voo()) == true) {
+				  this.repositorio.removerVoo(v.getCodigo_do_voo());
+			  } 
+			  else if(this.repositorio.existe(v.getCodigo_do_voo()) == false){
+				  //throw new VooNaoExisteException();
+			  }
+		  }
 	}
 	
 	public Voo procurar(int cod)/*throw VooNaoExisteException*/{
@@ -44,8 +59,9 @@ public class ControladorVoo {
 		return this.repositorio.procurarVoo(cod);
 		}
 		else{
-			return null;
+			
 			//throw new VooNaoExisteException;
+			return null;
 		}
 	}
 	
