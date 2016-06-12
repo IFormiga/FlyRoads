@@ -11,7 +11,7 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 	public RepositorioPassagens(){
 		
 	}
-	public boolean venderPassagem(Passagem passagem){
+	public boolean cadastrarPassagem(Passagem passagem){
 		try{
 			listaPassagens.add(passagem);
 		}
