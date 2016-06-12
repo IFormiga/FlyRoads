@@ -50,7 +50,7 @@ public TicketReserva(LocalDate data_entrada, LocalDate data_saida,
    
     public Quarto quarto_usuario(String numero_quarto)
     {
-        if(quarto.status_Quarto(numero_quarto) == false)
+        if(quarto.statusQuarto(numero_quarto) == false)
         {
             return quarto;
         }
