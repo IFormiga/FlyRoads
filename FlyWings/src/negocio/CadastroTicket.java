@@ -8,46 +8,50 @@ public class CadastroTicket {
 	
 	private IRepositorioTickets repositorio;
 
-	public CadastroTicket(IRepositorioTickets repositorio) {
-		super();
-		this.repositorio = repositorio;
+	public CadastroTicket(IRepositorioTickets instanciaRepositorio){
+		this.repositorio = instanciaRepositorio;
 	}
 	
-	public void CadastrarTicket(String numero_quarto) 
-	{
-		if(numero_quarto == null)
+	public void cadastrarReserva(TicketReserva ticket) throws TEException{
+		
+	if(ticket == null || (this.repositorio.existe(ticket)== true))
 		{
 			throw new IllegalArgumentException("Parâmetro inválido");
 		}
-		else if(!repositorio.existe(numero_quarto))
+		else if(ticket != null && (this.repositorio.existe(ticket) == false))
 		{
-			repositorio.cadastrar(numero_quarto);
+			repositorio.salvarTicket(ticket);
+		}
+		else
+		{
+			throw new TEException(ticket.getData_entrada(),ticket.getData_saida(),ticket.getQuarto());
 		}
 		
-		
-		
-  		
-	}
+}
 	
-    public void DescadastrarTicket(String numero_quarto) 
+    public void descadastrarTicket(TicketReserva ticket1) throws TNException
     {
     	
-    	if(numero_quarto == null)
+    	if(ticket1 == null || (this.repositorio.existe(ticket1) == false ))
     	{
     		throw new IllegalArgumentException("Parâmetro inválido");
     	}
-    	else if(repositorio.existe(numero_quarto))
+    	else if(repositorio.existe(ticket1))
     	{
-    		repositorio.remover(numero_quarto);
+    		repositorio.remover(ticket1);
+    	}
+    	else
+    	{
+    		throw new TNException(ticket1.getData_entrada(),ticket1.getData_saida(),ticket1.getQuarto());
     	}
     	
     	
     }
 	
         
-    public Ticket_Hotel ProcurarTicket(Ticket_Hotel ticket1) throws TNException
+    public TicketReserva ProcurarTicket(TicketReserva ticket1) throws TNException
     {
-    	return this.repositorio.ProcurarTicket(ticket1);
+    	return this.repositorio.procurarTicket(ticket1);
     }
 }
 

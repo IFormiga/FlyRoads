@@ -4,7 +4,7 @@ public class Hotel {
 
 	public String endereço;
 	public String CEP;
-    public String nome_hotel;
+    public String nomeHotel;
     public boolean quarto_disp;
     
     
@@ -13,7 +13,7 @@ public class Hotel {
 		
 		this.endereço = endereço;
 		CEP = cEP;
-		this.nome_hotel = nome_hotel;
+		this.nomeHotel = nome_hotel;
 		this.quarto_disp = quarto_disp;
 	}
 	public String getEndereço() {
@@ -29,10 +29,10 @@ public class Hotel {
 		CEP = cEP;
 	}
 	public String getNome_Hotel() {
-		return nome_hotel;
+		return nomeHotel;
 	}
 	public void setNome(String nome) {
-		this.nome_hotel = nome;
+		this.nomeHotel = nome;
 	} 
     
     public boolean disponibilidadequarto(Quarto quarto)
@@ -65,10 +65,10 @@ public class Hotel {
 				return false;
 		} else if (!endereço.equals(other.endereço))
 			return false;
-		if (nome_hotel == null) {
-			if (other.nome_hotel != null)
+		if (nomeHotel == null) {
+			if (other.nomeHotel != null)
 				return false;
-		} else if (!nome_hotel.equals(other.nome_hotel))
+		} else if (!nomeHotel.equals(other.nomeHotel))
 			return false;
 		return true;
 	}
@@ -76,7 +76,7 @@ public class Hotel {
 	
 	public String toString() {
 		return "Hotel [endereço=" + endereço + ", CEP=" + CEP + ", nome_hotel="
-				+ nome_hotel + ", quarto_disp=" + quarto_disp + "]";
+				+ nomeHotel + ", quarto_disp=" + quarto_disp + "]";
 	}
 	
     

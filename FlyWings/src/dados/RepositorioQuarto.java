@@ -14,7 +14,7 @@ public class RepositorioQuarto implements IRepositorioQuarto {
 	
 	//Criar um método listarQuartos
 	
-	public boolean SalvarQuarto(Quarto quarto1) throws QEException
+	public boolean salvarQuarto(Quarto quarto1) throws QEException
 	{
 	   	boolean resultado = false;
 		if(!listaQuartos.contains(quarto1))
@@ -24,14 +24,14 @@ public class RepositorioQuarto implements IRepositorioQuarto {
 	   	}
 	   	else
 	   	{
-	   		QEException qee = new QEException(quarto1.getNumero_quarto(),quarto1.Status_Quarto(quarto1.getNumero_quarto()));
+	   		QEException qee = new QEException(quarto1.getnumeroQuarto(),quarto1.statusQuarto(quarto1.getnumeroQuarto()));
 	   		throw qee;
 	   	}
 		return resultado;
 	   		
 	}
 	
-	public boolean DeletarQuarto(Quarto quarto1)throws QNException
+	public boolean deletarQuarto(Quarto quarto1)throws QNException
 	{
 		boolean resultado = false;
 	    if(listaQuartos.contains(quarto1))
@@ -42,13 +42,13 @@ public class RepositorioQuarto implements IRepositorioQuarto {
 			}
 		else
 		{
-			QNException qne = new QNException(quarto1.getNumero_quarto(),quarto1.status_quarto);
+			QNException qne = new QNException(quarto1.getnumeroQuarto(),quarto1.quartovazio(quarto1.getnumeroQuarto()));
 	   		throw qne;
 		}
 	    return resultado;
 	}
 	
-	public Quarto ProcurarQuarto(Quarto quarto1)throws QNException //Tem que retornar um quarto
+	public Quarto procurarQuarto(Quarto quarto1)throws QNException //Tem que retornar um quarto
 	{
 		
 		if(listaQuartos.contains(quarto1))
@@ -57,13 +57,13 @@ public class RepositorioQuarto implements IRepositorioQuarto {
 		 }
 		else
 		{
-			QNException qne = new QNException(quarto1.getNumero_quarto(),quarto1.status_quarto);
+			QNException qne = new QNException(quarto1.getnumeroQuarto(),quarto1.quartovazio(quarto1.getnumeroQuarto()));
 	   		throw qne;
 		}
 		
 	}
 	
-	public boolean AtualizarQuarto(Quarto quarto_para_alt, Quarto quarto_alt) throws QEException, QNException
+	public boolean atualizarQuarto(Quarto quarto_para_alt, Quarto quarto_alt) throws QEException, QNException
 	{
 		boolean resultado = false;
 		if((listaQuartos.contains(quarto_para_alt)))
@@ -78,56 +78,62 @@ public class RepositorioQuarto implements IRepositorioQuarto {
 		}
 			else
 			{
-				QEException qee = new QEException(quarto_alt.getNumero_quarto(),quarto_alt.status_quarto);
+				QEException qee = new QEException(quarto_alt.getnumeroQuarto(),quarto_alt.statusQuarto(quarto_alt.getnumeroQuarto()));
 		   		throw qee;
 			}
 		
        }
 		else
 		{
-			QNException qne = new QNException(quarto_para_alt.getNumero_quarto(),quarto_para_alt.status_quarto);
+			QNException qne = new QNException(quarto_para_alt.getnumeroQuarto(),quarto_para_alt.statusQuarto(quarto_alt.getnumeroQuarto()));
 	   		throw qne;
 		}
 	
 		return resultado;
 	} 
 	
-	public boolean existe(String numero_quarto)
+	public boolean existe(Quarto quarto)
 	{
 		boolean verifica = false;
-		for (Quarto quarto : listaQuartos) 
-		{
-			if(quarto.Status_Quarto(numero_quarto))
-			{
-                   verifica = true;
-                   return verifica;
-	     	}
-	}
+		for (Quarto quarto2 : listaQuartos) {
+			
+			
+				if(quarto2.equals(quarto))
+				{
+	                   verifica = true;
+	                   
+		     	}
+		}
+			
+		
+		
 		return verifica;
 	}
 	
-	public boolean remover(String numero_quarto)
+	public boolean remover(Quarto quarto)
 	{
 		boolean verifica = false;
-		for (Quarto quarto : listaQuartos) {
-			if(quarto.quartovazio(numero_quarto))
+		for (Quarto quarto2 : listaQuartos) {
+			if(quarto2.equals(quarto)){
+				if(quarto.quartovazio(quarto.getnumeroQuarto()))
 			{
 			   listaQuartos.remove(quarto);
 			   verifica = true;
-			   return verifica;
+			   
 			}
+		}
 		}
 		return verifica;
 	}
 	
-	public Quarto procurar(String numero_quarto) 
+	public Quarto procurar(String numeroQuarto) 
 	{
 		Quarto resultado = null;
-		for (Quarto quarto : listaQuartos) {
-			if(this.existe(numero_quarto))
+		for (Quarto quarto2 : listaQuartos) {
+			if(quarto2.statusQuarto(numeroQuarto))
 			{
-				 resultado = quarto;
-				 return resultado;
+				 resultado = quarto2;
+				 
 			}
 		}
 		return resultado;

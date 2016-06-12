@@ -10,15 +10,15 @@ public class TEException extends Exception {
 	public LocalDate data_entrada;
 	public LocalDate data_saida;
 	public Quarto quarto;
-	public Period periodo_data;
+	
 	
 	public TEException(LocalDate data_entrada, LocalDate data_saida,
-			Quarto quarto, Period periodo_data) {
+			Quarto quarto) {
 		super("Ticket ja existe");
 		this.data_entrada = data_entrada;
 		this.data_saida = data_saida;
 		this.quarto = quarto;
-		this.periodo_data = periodo_data;
+		
 	}
 	
 	
