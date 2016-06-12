@@ -20,7 +20,7 @@ public class CadastroTicket {
 		}
 		else if(ticket != null && (this.repositorio.existe(ticket) == false))
 		{
-			this.repositorio.salvarTicket(ticket);
+			repositorio.salvarTicket(ticket);
 		}
 		else
 		{

@@ -41,7 +41,7 @@ public class CadastroQuarto {
         }
         else if(repositorio.existe(quarto1))
         {
-            this.repositorio.deletarQuarto(quarto1);
+            repositorio.deletarQuarto(quarto1);
         }
        
         else

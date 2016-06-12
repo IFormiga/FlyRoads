@@ -13,7 +13,7 @@ public class Quarto {
  }
    
     public String getnumeroQuarto() {
-        return this.numeroQuarto;
+        return numeroQuarto;
     }
     public void setnumeroQuarto(String numero_quarto) {
         this.numeroQuarto = numero_quarto;
