@@ -38,11 +38,11 @@ public TicketReserva(LocalDate data_entrada, LocalDate data_saida,
         this.dataSaida = data_saida;
     }
    
-    public Period quantasnoites(TicketReserva ticket)
+    public Period quantasnoites(TicketReserva ticket1)
    {
-       if(ticket != null)
+       if(ticket1 != null)
        {
-    	   return Period.between(ticket.getData_entrada(), ticket.getData_saida());
+    	   return Period.between(ticket1.getData_entrada(), ticket1.getData_saida());
     	   
        }
 	return null;

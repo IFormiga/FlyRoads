@@ -5,7 +5,10 @@ public class Hotel {
 	public String endereço;
 	public String CEP;
     public String nomeHotel;
-    public boolean quarto_disp;
+    public boolean quartoDisp;
+    public Quarto quarto;
+    
+    // Necessita criar referencia para quartos
     
     
 	
@@ -14,7 +17,7 @@ public class Hotel {
 		this.endereço = endereço;
 		CEP = cEP;
 		this.nomeHotel = nome_hotel;
-		this.quarto_disp = quarto_disp;
+		this.quartoDisp = quarto_disp;
 	}
 	public String getEndereço() {
 		return endereço;
@@ -39,13 +42,13 @@ public class Hotel {
     {
     	if(quarto != null)
     	{
-    		quarto_disp = quarto.Status_Quarto(quarto.getNumero_quarto());
-    		return quarto_disp;
+    		quartoDisp = quarto.statusQuarto(quarto.getnumeroQuarto());
+    		return quartoDisp;
     	}
     	else
     	{
-    		quarto_disp = false; 
-    		return quarto_disp;
+    		quartoDisp = false; 
+    		return quartoDisp;
     		// quarto não existe
     	}
     }
@@ -76,7 +79,7 @@ public class Hotel {
 	
 	public String toString() {
 		return "Hotel [endereço=" + endereço + ", CEP=" + CEP + ", nome_hotel="
-				+ nomeHotel + ", quarto_disp=" + quarto_disp + "]";
+				+ nomeHotel + ", quarto_disp=" + quartoDisp + "]";
 	}
 	
     
