@@ -1,6 +1,5 @@
 package negocio;
-<<<<<<< HEAD
- 
+
 public class Quarto {
  
    
@@ -62,7 +61,6 @@ public class Quarto {
    
    
 }
-=======
 
 public class Quarto /* FAÇA O DIABO DOS QUARTOS DENTRO DE HOTEL =) DEPOIS VEJA AI =)*/ {
 
@@ -123,4 +121,3 @@ public class Quarto /* FAÇA O DIABO DOS QUARTOS DENTRO DE HOTEL =) DEPOIS VEJA A
 	
 	
 }
->>>>>>> branch 'master' of https://github.com/IFormiga/FlyWings.git
