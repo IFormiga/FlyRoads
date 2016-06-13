@@ -1,6 +1,8 @@
 package negocio;
+import exceptions.VooJaExisteException;
+import exceptions.VooNaoExisteException;
+import exceptions.JaExisteVooNesseHorarioException;
 import java.util.List;
-
 import dados.IRepositorioVoo;
 
 public class ControladorVoo {
@@ -10,7 +12,7 @@ public class ControladorVoo {
 		this.repositorio = instanciaRepositorio;
 	}
 	
-	public void cadastrarVoo(Voo v) /*throws VooJaExisteException*/{
+	public void cadastrarVoo(Voo v) throws VooJaExisteException, JaExisteVooNesseHorarioException{
 		List<Voo> listaVoos = this.listaVoo();
 		boolean verificacao = false;
 		
@@ -24,8 +26,8 @@ public class ControladorVoo {
 				this.repositorio.cadastrarVoo(v);
 			}
 			if(verificacao == true){
-				//JaExisteVooNesseHorarioException m = new JaExisteVooNesseHorarioException();
-				//throw m;
+				JaExisteVooNesseHorarioException m = new JaExisteVooNesseHorarioException(v.getCodigo_do_voo());
+				throw m;
 			}
 		} 
 			else {
@@ -34,8 +36,8 @@ public class ControladorVoo {
 					throw x;
 				}
 					else{
-						//VooJaExisteException z = new VooJaExisteException();
-						//throw z;
+						VooJaExisteException z = new VooJaExisteException(v.getCodigo_do_voo());
+						throw z;
 					}
 		      }
 	}
@@ -54,14 +56,12 @@ public class ControladorVoo {
 		  }
 	}
 	
-	public Voo procurar(int cod)/*throw VooNaoExisteException*/{
+	public Voo procurar(int cod) throws VooNaoExisteException{
 		if(this.repositorio.existe(cod) == true){
 		return this.repositorio.procurarVoo(cod);
 		}
 		else{
-			
-			//throw new VooNaoExisteException;
-			return null;
+			throw new VooNaoExisteException(cod);
 		}
 	}
 	

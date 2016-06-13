@@ -1,9 +1,11 @@
 package negocio;
 
-import java.io.*;
 import java.util.List;
 
 import dados.IRepositorioPassagem;
+import exceptions.PassagemJaExisteException;
+import exceptions.PassagemNaoExisteException;
+import exceptions.VooNaoExisteException;
 
 public class ControladorPassagem {
 	private IRepositorioPassagem repositorio;
@@ -11,7 +13,7 @@ public class ControladorPassagem {
 	public ControladorPassagem(IRepositorioPassagem instanciaRepositorio){
 		this.repositorio = instanciaRepositorio;
 	}
-	public void cadastrarPassagem(Passagem p)/*throws PassagemJaExisteException*/{
+	public void cadastrarPassagem(Passagem p) throws PassagemJaExisteException {
 		if (p != null && (this.repositorio.existePassagem(p.getCodigo())) == false){
 	        this.repositorio.cadastrarPassagem(p);
 	      } 
@@ -21,12 +23,12 @@ public class ControladorPassagem {
 	    		  throw x;
 	    	  }
 	    	  else{
-	    		  //PassagemJaExisteException z = new PassagemJaExisteException();
-	    		  //throw z;
+	    		  PassagemJaExisteException z = new PassagemJaExisteException(p.getCodigo());
+	    		  throw z;
 	    	  }
 	      }
 	}
-	public void alterarPassagem(Passagem passagem_alterada, Passagem passagem) /*throw PassagemNaoExisteException*/{
+	public void alterarPassagem(Passagem passagem_alterada, Passagem passagem) throws PassagemNaoExisteException {
 		if(passagem_alterada != null && passagem != null){
 			this.repositorio.alterarPassagem(passagem_alterada, passagem);
 		}
@@ -41,20 +43,20 @@ public class ControladorPassagem {
 			}
 		}
 	}
-	public Passagem procurarPassagem(String cod) /*throw PassagemNaoExisteException*/{
+	public Passagem procurarPassagem(String cod) throws PassagemNaoExisteException {
 		Passagem passagem = null;
 		if(this.repositorio.existePassagem(cod) == true){
 			passagem = this.repositorio.procurarPassagem(cod);
 			}
 			else{
-				//throw new VooNaoExisteException;
+				throw new PassagemNaoExisteException(cod);
 			}
 		return passagem;
 	}
 	public List<Passagem> listaPassagens(){
 		return this.listaPassagens();
 	}
-	public void removerPassagem(Passagem p) /*throw PassagemNaoExisteException*/{
+	public void removerPassagem(Passagem p) throws PassagemNaoExisteException, PassagemJaExisteException {
 		 if (p == null) {
 		    } 
 		  else {
@@ -62,7 +64,7 @@ public class ControladorPassagem {
 		        this.repositorio.removerPassagem(p.getCodigo());
 		      } 
 		      else {
-		        //throw new PassagemJaExisteException(c.getNumero());
+		    	  throw new PassagemJaExisteException(p.getCodigo());
 		      }
 		    }
 	}
