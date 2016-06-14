@@ -1,23 +1,25 @@
 package negocio;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Hotel {
 
 	public String endereço;
 	public String CEP;
     public String nomeHotel;
-    public boolean quartoDisp;
-    public Quarto quarto;
+   private List<Quarto> listaQuartos = new ArrayList<Quarto>();
     
-    // Necessita criar referencia para quartos
     
     
 	
-    public Hotel(String endereço, String cEP, String nome_hotel,boolean quarto_disp) {
+    public Hotel(String endereço, String cEP, String nome_hotel,List<Quarto> listaQuartos) {
 		
 		this.endereço = endereço;
 		CEP = cEP;
 		this.nomeHotel = nome_hotel;
-		this.quartoDisp = quarto_disp;
+		this.listaQuartos = listaQuartos;
+		
 	}
 	public String getEndereço() {
 		return endereço;
@@ -37,20 +39,37 @@ public class Hotel {
 	public void setNome(String nome) {
 		this.nomeHotel = nome;
 	} 
+	
+	public List<Quarto> getListaQuarto()
+	{
+		return listaQuartos;
+	}
+	
+	public void setListaQuarto(List<Quarto> lista)
+	{
+		this.listaQuartos = lista;
+	}
     
     public boolean disponibilidadequarto(Quarto quarto)
     {
+    	boolean resultado = false;
     	if(quarto != null)
     	{
-    		quartoDisp = quarto.statusQuarto(quarto.getnumeroQuarto());
-    		return quartoDisp;
-    	}
-    	else
-    	{
-    		quartoDisp = false; 
-    		return quartoDisp;
-    		// quarto não existe
-    	}
+    		if(listaQuartos.contains(quarto))  
+    		{
+    			if(quarto.statusQuarto(quarto.getnumeroQuarto()))
+    					{
+    				            resultado = false;
+    					}
+    			else
+    			{
+                      resultado = true;
+    		   }
+    	
+        }
+    	
+    }
+    	return resultado;
     }
 	
 	public boolean equals(Object obj) {
@@ -79,7 +98,7 @@ public class Hotel {
 	
 	public String toString() {
 		return "Hotel [endereço=" + endereço + ", CEP=" + CEP + ", nome_hotel="
-				+ nomeHotel + ", quarto_disp=" + quartoDisp + "]";
+				+ nomeHotel + "";
 	}
 	
     

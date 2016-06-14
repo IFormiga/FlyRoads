@@ -2,18 +2,20 @@ package exceptions;
 
 public class HNException extends Exception {
 	
-	public HNException(String endereço, String cEP, String nome,
-			boolean quarto_disp) {
-		super("Hotel não existe");
-		this.endereço = endereço;
-		this.CEP = cEP;
-		this.nome = nome;
-		this.quarto_disp = quarto_disp;
-	}
+	
 	public String endereço;
 	public String CEP;
 	public String nome;
 	public boolean quarto_disp;
+	
+	public HNException(String endereço, String cEP, String nome)
+	 {
+super("Hotel não existe");
+this.endereço = endereço;
+this.CEP = cEP;
+this.nome = nome;
+
+}
 	
 	public String getEndereço() {
 		return endereço;
@@ -33,12 +35,7 @@ public class HNException extends Exception {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public boolean isQuarto_disp() {
-		return quarto_disp;
-	}
-	public void setQuarto_disp(boolean quarto_disp) {
-		this.quarto_disp = quarto_disp;
-	}
+	
 	
 	
 	

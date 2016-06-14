@@ -42,12 +42,7 @@ public class TNException extends Exception {
 	public void setQuarto(Quarto quarto) {
 		this.quarto = quarto;
 	}
-	public Period getPeriodo_data() {
-		return periodo_data;
-	}
-	public void setPeriodo_data(Period periodo_data) {
-		this.periodo_data = periodo_data;
-	}
+	
 	
 	
 

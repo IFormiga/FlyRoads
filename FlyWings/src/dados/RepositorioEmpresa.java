@@ -20,7 +20,7 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 	   	{
            if(listaEmpresa.contains(empresa1))
            {
-        	   EEException eee = new EEException(empresa1.getNome_empresa(), empresa1.getCnpj());
+        	   EEException eee = new EEException(empresa1.getNomeEmpresa(), empresa1.getCnpj());
  	   		   throw eee;
            }
            listaEmpresa.add(empresa1);
@@ -35,7 +35,7 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 			}
 	    else if(!listaEmpresa.contains(empresa1))
 	    {
-	    	ENException ene = new ENException(empresa1.getNome_empresa(), empresa1.getCnpj());
+	    	ENException ene = new ENException(empresa1.getNomeEmpresa(), empresa1.getCnpj());
 	   		   throw ene;
 	    }
 	}

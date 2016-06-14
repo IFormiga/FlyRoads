@@ -7,16 +7,16 @@ import exceptions.HNException;
 import negocio.Hotel;
 
 
-public class RepositorioHoteis {
+public class RepositorioHoteis implements IRepositorioHoteis {
 
 private List<Hotel> listaHoteis = new ArrayList<Hotel>();
 	
 	
-	public void salvarQuarto(Hotel hotel1)throws HEException
+	public void salvarHotel(Hotel hotel1)throws HEException
 	{
 	   	if(listaHoteis.contains(hotel1))
 	   	{
-		   HEException hee = new HEException(hotel1.getEndereço(),hotel1.getCEP(),hotel1.getNome_Hotel(),hotel1.);
+		   HEException hee = new HEException(hotel1.getEndereço(),hotel1.getCEP(),hotel1.getNome_Hotel());
 		   throw hee;
 	   	}
 	   	else
@@ -34,7 +34,7 @@ private List<Hotel> listaHoteis = new ArrayList<Hotel>();
 			}
 		else
 		{
-			HNException hne = new HNException(hotel1.getEndereço(),hotel1.getCEP(),hotel1.getNome_Hotel(),hotel1.quartoDisp);
+			HNException hne = new HNException(hotel1.getEndereço(),hotel1.getCEP(),hotel1.getNome_Hotel());
 			throw hne;
 		}
 	}
@@ -47,7 +47,7 @@ private List<Hotel> listaHoteis = new ArrayList<Hotel>();
 		}
 		else
 		{
-			HNException hne = new HNException(hotel1.getEndereço(),hotel1.getCEP(),hotel1.getNome_Hotel(),hotel1.quartoDisp);
+			HNException hne = new HNException(hotel1.getEndereço(),hotel1.getCEP(),hotel1.getNome_Hotel());
 			throw hne;
 		}
 	}
@@ -66,14 +66,14 @@ private List<Hotel> listaHoteis = new ArrayList<Hotel>();
 			}
 			else
 			{
-				 HEException hee = new HEException(hotel_alt.getEndereço(),hotel_alt.getCEP(),hotel_alt.getNome_Hotel(),hotel_alt.quartoDisp);
+				 HEException hee = new HEException(hotel_alt.getEndereço(),hotel_alt.getCEP(),hotel_alt.getNome_Hotel());
 				  throw hee;
 			}
 			
 		}
 		else
 		{
-			HNException hne = new HNException(hotel_para_alt.getEndereço(),hotel_para_alt.getCEP(),hotel_para_alt.getNome_Hotel(),hotel_para_alt.quartoDisp);
+			HNException hne = new HNException(hotel_para_alt.getEndereço(),hotel_para_alt.getCEP(),hotel_para_alt.getNome_Hotel());
 			throw hne;
 		}
 		

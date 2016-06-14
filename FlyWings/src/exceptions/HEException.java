@@ -2,19 +2,20 @@ package exceptions;
 
 public class HEException extends Exception {
 
+	public String endereço;
+	public String cep;
+	public String nome;
 	
-	public HEException(String endereço, String cEP, String nome,
-			boolean quarto_disp) {
+	
+	public HEException(String endereço, String cEP, String nome) {
 		super("Hotel ja existe");
 		this.endereço = endereço;
-		this.CEP = cEP;
+		this.cep = cEP;
 		this.nome = nome;
-		this.quarto_disp = quarto_disp;
+		
 	}
-	public String endereço;
-	public String CEP;
-	public String nome;
-	public boolean quarto_disp;
+	
+	
 	
 	public String getEndereço() {
 		return endereço;
@@ -23,10 +24,10 @@ public class HEException extends Exception {
 		this.endereço = endereço;
 	}
 	public String getCEP() {
-		return CEP;
+		return cep;
 	}
 	public void setCEP(String cEP) {
-		CEP = cEP;
+		cep = cEP;
 	}
 	public String getNome() {
 		return nome;
@@ -34,12 +35,8 @@ public class HEException extends Exception {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public boolean isQuarto_disp() {
-		return quarto_disp;
-	}
-	public void setQuarto_disp(boolean quarto_disp) {
-		this.quarto_disp = quarto_disp;
-	}
+	
+	
 	
 	
 	
