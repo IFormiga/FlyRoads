@@ -1,8 +1,5 @@
 package negocio;
  
-import java.util.ArrayList;
-import java.util.List;
-
 import dados.IRepositorioQuarto;
 import exceptions.QEException;
 import exceptions.QNException;

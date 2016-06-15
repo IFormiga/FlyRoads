@@ -5,7 +5,6 @@ import java.util.List;
 import dados.IRepositorioPassagem;
 import exceptions.PassagemJaExisteException;
 import exceptions.PassagemNaoExisteException;
-import exceptions.VooNaoExisteException;
 
 public class ControladorPassagem {
 	private IRepositorioPassagem repositorio;
