@@ -1,5 +1,6 @@
 package dados;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import exceptions.TEException;
@@ -120,6 +121,12 @@ private List<TicketReserva> listaTickets = new ArrayList<TicketReserva>();
 		}
 		return resultado;
 		
+	}
+
+	
+	public List<TicketReserva> listarTickets() {
+		
+		return Collections.unmodifiableList(this.listaTickets);
 	}
 	
 	

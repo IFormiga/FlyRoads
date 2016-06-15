@@ -49,7 +49,7 @@ public class CadastroTicket {
     }
 	
         
-    public TicketReserva ProcurarTicket(TicketReserva ticket1) throws TNException
+    public TicketReserva procurarTicket(TicketReserva ticket1) throws TNException
     {
     	return this.repositorio.procurarTicket(ticket1);
     }

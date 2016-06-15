@@ -1,10 +1,13 @@
 package dados;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import exceptions.HEException;
 import exceptions.HNException;
+
 import negocio.Hotel;
+
 
 
 public class RepositorioHoteis implements IRepositorioHoteis {
@@ -39,16 +42,16 @@ private List<Hotel> listaHoteis = new ArrayList<Hotel>();
 		}
 	}
 	
-	public void procurarHotel(Hotel hotel1)throws HNException
+	public Hotel procurarHotel(Hotel hotel1)throws HNException
 	{
 		if(listaHoteis.contains(hotel1))
 		{
-			System.out.println(hotel1.toString());
+			return hotel1;
+			
 		}
 		else
 		{
-			HNException hne = new HNException(hotel1.getEndereço(),hotel1.getCEP(),hotel1.getNome_Hotel());
-			throw hne;
+			throw new HNException(hotel1.getEndereço(),hotel1.getCEP(),hotel1.getNome_Hotel());
 		}
 	}
 	
@@ -78,6 +81,41 @@ private List<Hotel> listaHoteis = new ArrayList<Hotel>();
 		}
 		
 		return r;
+	}
+
+	
+	public List<Hotel> listarHoteis() {
+		return Collections.unmodifiableList(this.listaHoteis);
+	}
+
+	
+	public boolean existe(Hotel hotel) {
+		boolean resultado = false;
+		for (Hotel hotel2 : listaHoteis) {
+		     {
+				if(hotel2.equals(hotel))
+				{
+					resultado = true;
+				}
+		    	
+		    }
+		     
+		}
+		return resultado;
+	}
+	
+
+	
+	public boolean remover(Hotel hotel) {
+		boolean resultado = false;
+		for (Hotel hotel2 : listaHoteis) {
+			if(hotel2.equals(hotel))
+			{
+				listaHoteis.remove(hotel2);
+				resultado = true;
+			}
+		}
+		return resultado;
 	} 
 	
 }

@@ -1,7 +1,8 @@
 package dados;
 
-import negocio.TicketReserva;
+import java.util.List;
 
+import negocio.TicketReserva;
 import exceptions.TEException;
 import exceptions.TNException;
 
@@ -13,6 +14,7 @@ public interface IRepositorioTickets {
 	public abstract boolean atualizarTicket(TicketReserva ticket1, TicketReserva ticket2)throws TEException, TNException;
 	public abstract boolean existe(TicketReserva ticket);
 	public abstract boolean remover(TicketReserva ticket);
+	public abstract List<TicketReserva> listarTickets();
 	
 	
 	

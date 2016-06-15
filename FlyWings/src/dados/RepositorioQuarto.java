@@ -1,6 +1,7 @@
 package dados;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import exceptions.QEException;
@@ -12,7 +13,7 @@ public class RepositorioQuarto implements IRepositorioQuarto {
 
 	public List<Quarto> listaQuartos = new ArrayList<Quarto>();
 	
-	//Criar um método listarQuartos
+	
 	
 	public boolean salvarQuarto(Quarto quarto1) throws QEException
 	{
@@ -138,9 +139,18 @@ public class RepositorioQuarto implements IRepositorioQuarto {
 		}
 		return resultado;
 		}
+
+	
+	public List<Quarto> listarQuartos() {
 		
+		return Collections.unmodifiableList(this.listaQuartos);
+	}
+		
+	
+	
 	}
 	
+  
 	
 	
 	

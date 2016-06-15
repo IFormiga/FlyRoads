@@ -1,7 +1,10 @@
 package dados;
 
+import java.util.List;
+
 import exceptions.QEException;
 import exceptions.QNException;
+
 import negocio.Quarto;
 
 public abstract interface IRepositorioQuarto {
@@ -12,6 +15,7 @@ public abstract interface IRepositorioQuarto {
     public abstract boolean existe(Quarto quarto);
     public abstract boolean remover(Quarto quarto);
     public abstract Quarto procurar(String numeroQuarto);
+    public abstract List<Quarto> listarQuartos();
 	
 	
 }
