@@ -7,10 +7,11 @@ public class Quarto {
     public boolean statusQuarto;
     private Hotel hotel;
    
- public Quarto(String numero_quarto, boolean status_quarto) {
+ public Quarto(String numero_quarto, boolean status_quarto,Hotel hotel) {
        
         this.numeroQuarto = numero_quarto;
         this.statusQuarto = status_quarto;
+        this.setHotel(hotel);
  }
    
     public String getnumeroQuarto() {
@@ -27,7 +28,8 @@ public class Quarto {
     
     public void setHotel(Hotel hotel)
     {
-    	this.hotel = hotel;
+    	if(hotel != null)
+    	  this.hotel = hotel;
     }
    
    

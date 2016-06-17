@@ -71,6 +71,20 @@ public class Hotel {
     }
     	return resultado;
     }
+    
+    
+    public void addQuartos(Quarto quarto)
+    {
+      if(quarto != null)
+    {
+      if(!this.getListaQuarto().contains(quarto))
+    {
+       listaQuartos.add(quarto);
+     }
+     
+    }
+       
+    }
 	
 	public boolean equals(Object obj) {
 		if (this == obj)
