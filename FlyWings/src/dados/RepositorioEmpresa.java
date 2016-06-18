@@ -11,9 +11,20 @@ import negocio.Empresa;
 
 public class RepositorioEmpresa implements IRepositorioEmpresa{
 
+
 	private List<Empresa> listaEmpresa = new ArrayList<Empresa>();
-	
-	
+	private static RepositorioEmpresa instancia = new RepositorioEmpresa();
+
+	private RepositorioEmpresa()
+	{
+
+	}
+
+	public static RepositorioEmpresa getInstance() {
+
+	    return instancia;
+	  }
+
 	public void cadastrarEmpresa(Empresa empresa1)throws EEException
 	{
 	   	if(empresa1 != null)
@@ -26,7 +37,7 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
            listaEmpresa.add(empresa1);
 	   	}
 	}
-	
+
 	public void deletarEmpresa(Empresa empresa1)throws ENException
 	{
 	    if(listaEmpresa.contains(empresa1))
@@ -39,7 +50,7 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 	   		   throw ene;
 	    }
 	}
-	
+
 	public Empresa procurarEmpresa(String nome_da_empresa, String cnpj)throws ENException{
 		String cnpj2;
 		Empresa r = null;
@@ -51,11 +62,11 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 		}
 			if(r == null){
 			ENException ene = new ENException(nome_da_empresa, cnpj);
-	   		throw ene;	     	
+	   		throw ene;
 		}
-		return r;	
+		return r;
 	}
-	
+
 	public boolean atualizarEmpresa(Empresa empresa_para_alt, Empresa emp_alt)
 	{
 		boolean r = false;
@@ -76,8 +87,11 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 			if(cnpj2.equals(cnpj)){
 				r = true;
 			}
-		}	
+		}
 		return r;
-	} 
+	}
+
+
+
 }
 
