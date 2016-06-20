@@ -144,14 +144,14 @@ private List<TicketReserva> listaTickets = new ArrayList<TicketReserva>();
 	}
 
 
-	private static RepositorioTickets lerDoArquivo() {
+	public static RepositorioTickets lerDoArquivo() {
 	    RepositorioTickets instanciaLocal = null;
 
-	    File in = new File("ReservasTickets.dat");
+	    File arqtickets = new File("ReservasTickets.dat");
 	    FileInputStream fis = null;
 	    ObjectInputStream ois = null;
 	    try {
-	      fis = new FileInputStream(in);
+	      fis = new FileInputStream(arqtickets);
 	      ois = new ObjectInputStream(fis);
 	      Object o = ois.readObject();
 	      instanciaLocal = (RepositorioTickets) o;
@@ -174,12 +174,12 @@ private List<TicketReserva> listaTickets = new ArrayList<TicketReserva>();
 	      return;
 	    }
 
-	    File out = new File("ReservasTickets.dat");
+	    File arqtickets = new File("ReservasTickets.dat");
 	    FileOutputStream fos = null;
 	    ObjectOutputStream oos = null;
 
 	    try {
-	      fos = new FileOutputStream(out);
+	      fos = new FileOutputStream(arqtickets);
 	      oos = new ObjectOutputStream(fos);
 	      oos.writeObject(instance);
 	    } catch (Exception e) {

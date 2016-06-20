@@ -16,6 +16,8 @@ public interface IRepositorioHoteis {
 	public abstract List<Hotel> listarHoteis();
 	public abstract boolean existe(Hotel hotel);
 	public abstract boolean remover(Hotel hotel);
+	public  void salvarArquivo();
+	public RepositorioHoteis lerDoArquivo();
 
 
 }

@@ -16,6 +16,8 @@ public abstract interface IRepositorioQuarto {
     public abstract boolean remover(Quarto quarto);
     public abstract Quarto procurar(String numeroQuarto);
     public abstract List<Quarto> listarQuartos();
-	
-	
+    public  void salvarArquivo();
+	public RepositorioQuarto lerDoArquivo();
+
+
 }
