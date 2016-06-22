@@ -13,14 +13,11 @@ public class ControladorVoo {
 	}
 	
 	public void cadastrarVoo(Voo v) throws VooJaExisteException, JaExisteVooNesseHorarioException{
-		List<Voo> listaVoos = this.listaVoo();
 		boolean verificacao = false;
 		
 		if (v != null && this.repositorio.existe(v.getCodigo_do_voo()) == false) {
-			for(Voo voo : listaVoos){
-				if((v.getOrigem().equals(voo.getOrigem()) && v.getSaida().equals(voo.getSaida())) || (v.getDestino().equals(voo.getDestino()) && v.getChegada().equals(voo.getChegada()))){
-					verificacao = true;
-				}
+			if(this.repositorio.verificaHorario(v) == true){
+				verificacao = true;
 			}
 			if(verificacao == false){
 				this.repositorio.cadastrarVoo(v);
@@ -68,7 +65,7 @@ public class ControladorVoo {
 	public List<Voo> listaVoo(){
 		return this.listaVoo();
 	}
-	
+
 	public void alterarVoo(Voo voo_alterado, Voo voo2){
 		if(voo_alterado != null && voo2 != null){
 			this.repositorio.alterarVoo(voo_alterado, voo2);
@@ -82,3 +79,5 @@ public class ControladorVoo {
 	}
 	
 }
+	
+

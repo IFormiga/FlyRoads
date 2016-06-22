@@ -8,6 +8,8 @@ import negocio.Voo;
 public class RepositorioVoos implements IRepositorioVoo{
 	private List<Voo> listaVoos = new ArrayList<Voo>();
 	
+	//lista de passageiros pra usar nas regras de negocio
+	
 	public RepositorioVoos(){
 	}
 	public boolean cadastrarVoo(Voo voo){
@@ -57,6 +59,16 @@ public class RepositorioVoos implements IRepositorioVoo{
 			}
 		}
 		return r;
+	}
+	
+	public boolean verificaHorario(Voo v){
+		boolean verificacao = false;
+		for(Voo voo : listaVoos){
+			if((v.getOrigem().equals(voo.getOrigem()) && v.getSaida().equals(voo.getSaida())) || (v.getDestino().equals(voo.getDestino()) && v.getChegada().equals(voo.getChegada()))){
+				verificacao = true;
+			}
+		}
+		return verificacao;
 	}
 	
 	public void alterarVoo(Voo a_ser_alterado, Voo alterado){

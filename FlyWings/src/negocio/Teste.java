@@ -3,7 +3,6 @@ package negocio;
 public class Teste {
 
 	public static void main(String[] args) {
-		
 	/*Empresa e1 = new Empresa("Recife Palace", 1234);
 	Empresa e2 = new Empresa("Recife Plaze", 123456);
 	Empresa e3 = new Empresa("Recife P2", 1234);
@@ -42,7 +41,7 @@ public class Teste {
     String s;
     s = rp.ProcurarEmpresa(e2);
     System.out.println(s); */
-    
+
     
 		
 		

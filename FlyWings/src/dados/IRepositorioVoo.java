@@ -6,6 +6,8 @@ import negocio.Voo;
 
 public interface IRepositorioVoo {
 
+	public abstract boolean verificaHorario(Voo v);
+
 	public abstract boolean cadastrarVoo(Voo voo); //ok
 
 	public abstract boolean removerVoo(int codigo_do_voo); //ok
