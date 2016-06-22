@@ -144,7 +144,7 @@ private List<TicketReserva> listaTickets = new ArrayList<TicketReserva>();
 	}
 
 
-	public static RepositorioTickets lerDoArquivo() {
+	private static RepositorioTickets lerDoArquivo() {
 	    RepositorioTickets instanciaLocal = null;
 
 	    File arqtickets = new File("ReservasTickets.dat");

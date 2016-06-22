@@ -190,7 +190,7 @@ public class RepositorioQuarto implements IRepositorioQuarto {
 
 
 
-	public static RepositorioQuarto lerDoArquivo() {
+	private static RepositorioQuarto lerDoArquivo() {
 		RepositorioQuarto instanciaLocal = null;
 
 	    File arqquarto = new File("RepositorioQuarto.dat");

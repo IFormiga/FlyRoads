@@ -17,7 +17,7 @@ public abstract interface IRepositorioQuarto {
     public abstract Quarto procurar(String numeroQuarto);
     public abstract List<Quarto> listarQuartos();
     public  void salvarArquivo();
-	public RepositorioQuarto lerDoArquivo();
+
 
 
 }

@@ -16,8 +16,8 @@ public interface IRepositorioTickets {
 	public abstract boolean remover(TicketReserva ticket);
 	public abstract List<TicketReserva> listarTickets();
 	public  void salvarArquivo();
-	public RepositorioTickets lerDoArquivo();
-	
+
+
 
 
 

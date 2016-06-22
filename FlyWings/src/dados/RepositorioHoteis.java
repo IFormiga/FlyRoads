@@ -161,8 +161,7 @@ public static IRepositorioHoteis getInstance() {
 
 	}
 
-	@Override
-	public RepositorioHoteis lerDoArquivo() {
+	private static RepositorioHoteis lerDoArquivo() {
 		RepositorioHoteis instanciaLocal = null;
 
 	    File arqhoteis = new File("RepositorioHoteis.dat");

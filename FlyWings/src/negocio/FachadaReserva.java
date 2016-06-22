@@ -9,6 +9,7 @@ public class FachadaReserva implements IFachadaReserva {
 
 	private static IFachadaReserva instance;
 	private CadastroTicket reserva;
+	
 
 	private static IFachadaReserva getInstance()
 	{
