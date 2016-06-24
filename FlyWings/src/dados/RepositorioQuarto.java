@@ -36,6 +36,7 @@ public class RepositorioQuarto implements IRepositorioQuarto {
 		if(!listaQuartos.contains(quarto1))
 	   	{
 		   listaQuartos.add(quarto1);
+		   
 		   resultado = true;
 	   	}
 	   	else

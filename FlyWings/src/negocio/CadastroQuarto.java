@@ -1,5 +1,5 @@
 package negocio;
- 
+
 import dados.IRepositorioQuarto;
 import exceptions.QEException;
 import exceptions.QNException;
@@ -10,10 +10,10 @@ import exceptions.QNException;
 	private IRepositorioQuarto repositorio;
 
 	public CadastroQuarto(IRepositorioQuarto repositorio) {
-		
+
 		this.repositorio = repositorio;
 	}
-	
+
 	public void cadastrarQuarto(Quarto quarto1) throws QEException
 	{
 		if(quarto1 == null)
@@ -23,19 +23,20 @@ import exceptions.QNException;
 		else if(!repositorio.existe(quarto1))
 		{
 			this.repositorio.salvarQuarto(quarto1);
+			repositorio.salvarArquivo();
 		}
-		
+
 		else
 		{
 			throw new QEException(quarto1.getnumeroQuarto(),quarto1.statusQuarto(quarto1.getnumeroQuarto()));
 		}
-		
-  		
+
+
 	}
-	
+
     public void descadastrarQuarto(Quarto quarto1) throws QNException
     {
-    	
+
     	if(quarto1 == null)
     	{
     		throw new IllegalArgumentException("Parâmetro inválido");
@@ -43,26 +44,28 @@ import exceptions.QNException;
     	else if(repositorio.existe(quarto1))
     	{
     		repositorio.deletarQuarto(quarto1);
+    		repositorio.salvarArquivo();
     	}
-    	
+
     	else
     	{
     		throw new QNException(quarto1.getnumeroQuarto(),quarto1.statusQuarto(quarto1.getnumeroQuarto()));
     	}
 
     }
-   
-  
+
+
     public void removerQuarto(Quarto quarto)
     {
         this.repositorio.remover(quarto);
+        repositorio.salvarArquivo();
     }
-   
+
     public Quarto procurarQuarto(String numero_quarto)
     {
         return this.repositorio.procurar(numero_quarto);
     }
-    
-    
-    
+
+
+
 }

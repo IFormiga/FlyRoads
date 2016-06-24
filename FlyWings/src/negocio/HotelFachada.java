@@ -4,16 +4,17 @@ import dados.IHotelFachada;
 import dados.RepositorioQuarto;
 import dados.RepositorioTickets;
 import exceptions.HEException;
+import exceptions.QEException;
 import exceptions.TEException;
 import exceptions.TNException;
 
 public class HotelFachada implements IHotelFachada {
 
-	
+
 	private static IHotelFachada instance;
 	private CadastroTicket reserva;
 	private CadastroQuarto cadquarto;
-	
+
 
 	private static IHotelFachada getInstance()
 	{
@@ -23,36 +24,51 @@ public class HotelFachada implements IHotelFachada {
 		}
 		return instance;
 	}
-	
+
 	private HotelFachada() {
 
 		this.reserva = new CadastroTicket(RepositorioTickets.getInstance());
 		this.cadquarto = new CadastroQuarto(RepositorioQuarto.getInstance());
 	}
-	
-	
+
+
 	@Override
-	public void cadastrarReserva(TicketReserva ticket) throws TEException {
-		
-      
+	public void cadastrarReserva(TicketReserva ticket, Quarto quarto) throws TEException {
+
+		if(cadquarto.procurarQuarto(quarto.getnumeroQuarto()).statusQuarto(quarto.getnumeroQuarto()))
+				{
+			        this.reserva.cadastrarReserva(ticket, quarto.getHotel());
+				}
+
+
 	}
 
 	@Override
 	public void descadastrarReserva(TicketReserva ticket) throws TNException {
-		
+
+		if(this.reserva.existeReserva(ticket))
+		{
+			this.reserva.descadastrarReserva(ticket);
+		}
+
 
 	}
 
 	@Override
 	public TicketReserva procuraTicket(TicketReserva ticket) throws TNException {
-		// TODO Auto-generated method stub
-		return null;
+
+		TicketReserva ticketclone = null;
+		if(this.reserva.existeReserva(ticket))
+		{
+			ticket = ticketclone;
+		}
+		return ticketclone;
 	}
 
-	@Override
-	public void associarQuartoaReserva(Quarto quarto, TicketReserva ticket) throws HEException {
-		
-
+	public void cadastrarQuarto(Quarto quarto) throws QEException
+	{
+		this.cadquarto.cadastrarQuarto(quarto);
 	}
+
 
 }

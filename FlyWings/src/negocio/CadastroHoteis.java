@@ -11,10 +11,10 @@ import exceptions.TNException;
 public class CadastroHoteis {
 
 	private IRepositorioHoteis repositorio;
-	
-	
+
+
 	public CadastroHoteis(IRepositorioHoteis repositorio) {
-		
+
 		this.repositorio = repositorio;
 	}
 
@@ -28,16 +28,17 @@ public class CadastroHoteis {
 		else if(hotel != null && (this.repositorio.existe(hotel) == false))
 		{
 			repositorio.salvarHotel(hotel);
+			repositorio.salvarArquivo();
 		}
 		else
 		{
 			throw new HEException(hotel.getEndereço(),hotel.getCEP(),hotel.getNome_Hotel());
 		}
 	}
-	
-	public void descadastrarHotel(Hotel hotel) throws HNException 
+
+	public void descadastrarHotel(Hotel hotel) throws HNException
     {
-    	
+
     	if(hotel == null || (this.repositorio.existe(hotel) == false ))
     	{
     		throw new IllegalArgumentException("Parâmetro inválido");
@@ -45,32 +46,33 @@ public class CadastroHoteis {
     	else if(repositorio.existe(hotel))
     	{
     		repositorio.remover(hotel);
+    		repositorio.salvarArquivo();
     	}
     	else
     	{
     		throw new HNException(hotel.getEndereço(),hotel.getCEP(),hotel.nomeHotel);
     	}
-	
+
     }
-	
-	public Hotel procurarHotel(Hotel hotel) throws HNException 
+
+	public Hotel procurarHotel(Hotel hotel) throws HNException
     {
     	return this.repositorio.procurarHotel(hotel);
     }
-	
-	
+
+
 	public List<Quarto> criarQuartos(Hotel hotel)
     {
 		List<Quarto> quartosCriados = new ArrayList<Quarto>();
     	if(hotel != null)
     	{
-    		
+
     		hotel.setListaQuarto(quartosCriados);
-    		
+
     	 }
     	return quartosCriados;
-    	
+
     }
-	
-	
+
+
 }

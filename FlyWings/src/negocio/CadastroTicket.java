@@ -12,9 +12,9 @@ public class CadastroTicket {
 		this.repositorio = instanciaRepositorio;
 	}
 
-	public void cadastrarReserva(TicketReserva ticket) throws TEException{
+	public void cadastrarReserva(TicketReserva ticket, Hotel hotel) throws TEException{
 
-	if(ticket == null || (this.repositorio.existe(ticket)== true))
+	if(ticket == null || (this.repositorio.existe(ticket)== true) || hotel == null)
 		{
 			throw new IllegalArgumentException("Parâmetro inválido");
 		}
@@ -55,7 +55,28 @@ public class CadastroTicket {
     {
     	return this.repositorio.procurarTicket(ticket1);
     }
+
+
+    public boolean existeReserva(TicketReserva ticket)
+    {
+    	boolean resultado = false;
+
+    	if(ticket!= null)
+    	{
+    	  if(this.repositorio.existe(ticket))
+    	  {
+    		  resultado = true;
+    				  }
+    	}
+    	return resultado;
+
+
+    }
+
 }
+
+
+
 
 
 
