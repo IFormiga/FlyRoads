@@ -6,7 +6,6 @@ import java.util.List;
 import dados.IRepositorioHoteis;
 import exceptions.HEException;
 import exceptions.HNException;
-import exceptions.TNException;
 
 public class CadastroHoteis {
 
