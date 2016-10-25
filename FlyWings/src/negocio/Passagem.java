@@ -4,18 +4,12 @@ package negocio;
 public class Passagem {
 	private String codigo;
 	private Usuario user;
-	private Voo flight;
 	private String assento;
 	
-	public Passagem(String codigo,Usuario user,Voo flight,String assento){
+	public Passagem(String codigo,Usuario user,String assento){
 		this.codigo = codigo;
 		this.user = user;
-		this.flight = flight;
 		this.assento = assento;
-	}
-	
-	public void setAssento(String assento){
-		flight.escolherAssento(assento);
 	}
 	
 	public String getAssento(){
@@ -59,11 +53,6 @@ public class Passagem {
 				return false;
 		} else if (!codigo.equals(other.codigo))
 			return false;
-		if (flight == null) {
-			if (other.flight != null)
-				return false;
-		} else if (!flight.equals(other.flight))
-			return false;
 		if (user == null) {
 			if (other.user != null)
 				return false;
@@ -74,7 +63,7 @@ public class Passagem {
 
 	@Override
 	public String toString() {
-		return "Passagem [codigo=" + codigo + ", user=" + user + ", flight=" + flight + "]";
+		return "Passagem [codigo=" + codigo + ", user=" + user + "]";
 	}
 	 
 }
