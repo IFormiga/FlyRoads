@@ -17,7 +17,7 @@ public class RepositorioVoos implements IRepositorioVoo{
 	
 	//lista de passageiros pra usar nas regras de negocio
 	
-	public RepositorioVoos(){
+	private RepositorioVoos(){
 		this.listaVoos = new ArrayList<Voo>();
 	}
 	

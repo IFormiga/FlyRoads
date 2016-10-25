@@ -16,7 +16,7 @@ public class RepositorioUsuarios implements IRepositorioUsuario{
 	private List<Usuario> listaUsuarios;
 	private static RepositorioUsuarios instance;
 	
-	public RepositorioUsuarios(){
+	private RepositorioUsuarios(){
 		this.listaUsuarios = new ArrayList<Usuario>();
 	}
 	
