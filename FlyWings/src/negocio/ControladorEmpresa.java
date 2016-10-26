@@ -38,7 +38,10 @@ public class ControladorEmpresa {
 			this.repositorio.deletarEmpresa(e1);
 	}
 
-
+   //implementando alterar
+	public void alterar(Empresa e1, Empresa e2){
+		this.repositorio.atualizarEmpresa(e1, e2);
+	}
 
 
 }

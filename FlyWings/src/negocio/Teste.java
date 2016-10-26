@@ -3,10 +3,13 @@ package negocio;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import dados.IRepositorioViagensOnibus;
+
 public class Teste {
 
 	public static void main(String[] args) {
 
+		
 		ControladorViagemOnibus controlador = new ControladorViagemOnibus();
 
 		String assentos[] = {"1A","2A"};

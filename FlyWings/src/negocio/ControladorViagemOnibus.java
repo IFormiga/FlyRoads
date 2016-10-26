@@ -46,6 +46,10 @@ public class ControladorViagemOnibus {
 		}
 
 	}
+	//implementando alterar
+	public void alterar(ViagemOnibus v1,ViagemOnibus v2){
+		this.repositorio.alterarViagem(v1, v2);
+	}
 
 
 
