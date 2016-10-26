@@ -2,8 +2,8 @@ package dados;
 import java.util.ArrayList;
 import java.util.List;
 
-import exceptions.EEException;
-import exceptions.ENException;
+import exceptions.EmpresaJaExisteException;
+import exceptions.EmpresaNaoExisteException;
 import negocio.Empresa;
 
 
@@ -12,33 +12,33 @@ import negocio.Empresa;
 public class RepositorioEmpresa implements IRepositorioEmpresa{
 
 
-	private List<Empresa> listaEmpresa = new ArrayList<Empresa>();
-	private static RepositorioEmpresa instancia = new RepositorioEmpresa();
+	private List<Empresa> listaEmpresa;
+	private static RepositorioEmpresa instancia;
 
-	private RepositorioEmpresa()
-	{
-
+	private RepositorioEmpresa(){
+            this.listaEmpresa = new ArrayList<Empresa>();
 	}
 
 	public static RepositorioEmpresa getInstance() {
 
+		if(instancia == null){
+			instancia = new RepositorioEmpresa();
+		}
 	    return instancia;
 	  }
 
-	public void cadastrarEmpresa(Empresa empresa1)throws EEException
+	public void cadastrarEmpresa(Empresa empresa1)throws EmpresaJaExisteException
 	{
-	   	if(empresa1 != null)
-	   	{
-           if(listaEmpresa.contains(empresa1))
-           {
-        	   EEException eee = new EEException(empresa1.getNomeEmpresa(), empresa1.getCnpj());
+	   	if(empresa1 != null){
+           if(listaEmpresa.contains(empresa1)){
+        	   EmpresaJaExisteException eee = new EmpresaJaExisteException(empresa1.getCnpj());
  	   		   throw eee;
            }
            listaEmpresa.add(empresa1);
 	   	}
 	}
 
-	public void deletarEmpresa(Empresa empresa1)throws ENException
+	public void deletarEmpresa(Empresa empresa1)throws EmpresaNaoExisteException
 	{
 	    if(listaEmpresa.contains(empresa1))
 			{
@@ -46,12 +46,12 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 			}
 	    else if(!listaEmpresa.contains(empresa1))
 	    {
-	    	ENException ene = new ENException(empresa1.getNomeEmpresa(), empresa1.getCnpj());
+	    	EmpresaNaoExisteException ene = new EmpresaNaoExisteException(empresa1.getCnpj());
 	   		   throw ene;
 	    }
 	}
 
-	public Empresa procurarEmpresa(String nome_da_empresa, String cnpj)throws ENException{
+	public Empresa procurarEmpresa(String nome_da_empresa, String cnpj)throws EmpresaNaoExisteException{
 		String cnpj2;
 		Empresa r = null;
 		for(Empresa empresa2 : this.listaEmpresa){
@@ -61,7 +61,7 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 			}
 		}
 			if(r == null){
-			ENException ene = new ENException(nome_da_empresa, cnpj);
+				EmpresaNaoExisteException ene = new EmpresaNaoExisteException(cnpj);
 	   		throw ene;
 		}
 		return r;

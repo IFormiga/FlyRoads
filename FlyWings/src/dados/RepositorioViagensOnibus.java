@@ -15,8 +15,7 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
 		this.listaviagens = new ArrayList<ViagemOnibus>();
 	}
 	public static IRepositorioViagensOnibus getInstance(){
-		if(instance == null)
-		{
+		if(instance == null){
 			instance = new RepositorioViagensOnibus();
 		}
 		return instance;
@@ -30,8 +29,7 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
 	public boolean cadastrarViagem(ViagemOnibus v1){
 		boolean r = false;
 		if(v1 != null){
-		if(listaviagens.contains(v1) != true)
-		{
+		if(listaviagens.contains(v1) != true){
             listaviagens.add(v1);
             r = true;
 		}
@@ -63,8 +61,7 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
 	 * @see dados.IRepositorioViagensOnibus#listarViagens()
 	 */
 	@Override
-	public java.util.List<ViagemOnibus> listarViagens()
-	{
+	public java.util.List<ViagemOnibus> listarViagens(){
 		return Collections.unmodifiableList(this.listaviagens);
 
 	}
@@ -74,12 +71,10 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
 	 * @see dados.IRepositorioViagensOnibus#alterarViagem(negocio.ViagemOnibus, negocio.ViagemOnibus)
 	 */
 	@Override
-	public boolean alterarViagem(ViagemOnibus v_para_alterar,ViagemOnibus v_alterada)
-	{
+	public boolean alterarViagem(ViagemOnibus v_para_alterar,ViagemOnibus v_alterada){
 		boolean r = false;
 		if(v_para_alterar != null && v_alterada != null){
-			if(listaviagens.contains(v_para_alterar))
-			{
+			if(listaviagens.contains(v_para_alterar)){
 				listaviagens.remove(v_para_alterar);
 				listaviagens.add(v_alterada);
 				r = true;
@@ -117,4 +112,5 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
 		}
 		return resultado;
 	}
+
 }
