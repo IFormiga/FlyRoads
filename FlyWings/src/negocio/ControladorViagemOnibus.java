@@ -3,12 +3,12 @@ package negocio;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import dados.IRepositorioViagensOnibus;
+
 import dados.RepositorioViagensOnibus;
 
 public class ControladorViagemOnibus {
 
-	private IRepositorioViagensOnibus repositorio;
+	private RepositorioViagensOnibus repositorio;
 
 	public ControladorViagemOnibus(){
 		this.repositorio = RepositorioViagensOnibus.getInstance();
@@ -42,7 +42,7 @@ public class ControladorViagemOnibus {
 		else{
 			this.repositorio.removerViagem(codigo);
 		}
-		
+
 	}
 
 

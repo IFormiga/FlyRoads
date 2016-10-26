@@ -9,12 +9,12 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
 
 
 	private ArrayList<ViagemOnibus> listaviagens;
-	private static IRepositorioViagensOnibus instance;
+	private static RepositorioViagensOnibus instance;
 
 	private RepositorioViagensOnibus(){
 		this.listaviagens = new ArrayList<ViagemOnibus>();
 	}
-	public static IRepositorioViagensOnibus getInstance(){
+	public static RepositorioViagensOnibus getInstance(){
 		if(instance == null){
 			instance = new RepositorioViagensOnibus();
 		}
@@ -33,8 +33,7 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
             listaviagens.add(v1);
             r = true;
 		}
-		else
-			System.out.println("Objeto ja existe");
+
 		}
 		return r;
 	}
