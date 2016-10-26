@@ -10,8 +10,7 @@ public class ControladorViagemOnibus {
 
 	private IRepositorioViagensOnibus repositorio;
 
-	public ControladorViagemOnibus()
-	{
+	public ControladorViagemOnibus(){
 		this.repositorio = RepositorioViagensOnibus.getInstance();
 	}
 
@@ -43,6 +42,7 @@ public class ControladorViagemOnibus {
 		else{
 			this.repositorio.removerViagem(codigo);
 		}
+		
 	}
 
 
