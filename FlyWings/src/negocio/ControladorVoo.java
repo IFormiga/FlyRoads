@@ -15,7 +15,7 @@ public class ControladorVoo {
 	public void cadastrarVoo(Voo v) throws VooJaExisteException, JaExisteVooNesseHorarioException{
 		boolean verificacao = false;
 		
-		if (v != null && this.repositorio.existe(v.getCodigo_do_voo()) == false) {
+		if (v != null && this.repositorio.existe(v.getCodigoDoVoo()) == false) {
 			if(this.repositorio.verificaHorario(v) == true){
 				verificacao = true;
 			}
@@ -23,7 +23,7 @@ public class ControladorVoo {
 				this.repositorio.cadastrarVoo(v);
 			}
 			if(verificacao == true){
-				JaExisteVooNesseHorarioException m = new JaExisteVooNesseHorarioException(v.getCodigo_do_voo());
+				JaExisteVooNesseHorarioException m = new JaExisteVooNesseHorarioException(v.getCodigoDoVoo());
 				throw m;
 			}
 		} 
@@ -33,7 +33,7 @@ public class ControladorVoo {
 					throw x;
 				}
 					else{
-						VooJaExisteException z = new VooJaExisteException(v.getCodigo_do_voo());
+						VooJaExisteException z = new VooJaExisteException(v.getCodigoDoVoo());
 						throw z;
 					}
 		      }
@@ -44,10 +44,10 @@ public class ControladorVoo {
 			  throw new IllegalArgumentException("");
 		  } 
 		  else{
-			  if (this.repositorio.existe(v.getCodigo_do_voo()) == true) {
-				  this.repositorio.removerVoo(v.getCodigo_do_voo());
+			  if (this.repositorio.existe(v.getCodigoDoVoo()) == true) {
+				  this.repositorio.removerVoo(v.getCodigoDoVoo());
 			  } 
-			  else if(this.repositorio.existe(v.getCodigo_do_voo()) == false){
+			  else if(this.repositorio.existe(v.getCodigoDoVoo()) == false){
 				  //throw new VooNaoExisteException();
 			  }
 		  }

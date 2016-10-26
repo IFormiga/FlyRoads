@@ -26,20 +26,20 @@ public class Voo {
 		return this.numAssentos;
 	}
 	
-	public int getCodigo_do_voo() {
+	public int getCodigoDoVoo() {
 		return codigoDoVoo;
 	}
 
 
-	public String getNome_empresa() {
+	public String getNomeEmpresa() {
 		return nomeEmpresa;
 	}
 
-	public void setNome_empresa(String nome_empresa) {
+	public void setNomeEmpresa(String nome_empresa) {
 		this.nomeEmpresa = nome_empresa;
 	}
 
-	public void setCodigo_do_voo(int codigo_do_voo) {
+	public void setCodigoDoVoo(int codigo_do_voo) {
 		this.codigoDoVoo = codigo_do_voo;
 	}
 

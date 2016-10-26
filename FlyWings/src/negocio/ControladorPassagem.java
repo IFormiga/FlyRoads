@@ -27,12 +27,12 @@ public class ControladorPassagem {
 	    	  }
 	      }
 	}
-	public void alterarPassagem(Passagem passagem_alterada, Passagem passagem) throws PassagemNaoExisteException {
-		if(passagem_alterada != null && passagem != null){
-			this.repositorio.alterarPassagem(passagem_alterada, passagem);
+	public void alterarPassagem(Passagem passagemAlterada, Passagem passagem) throws PassagemNaoExisteException {
+		if(passagemAlterada != null && passagem != null){
+			this.repositorio.alterarPassagem(passagemAlterada, passagem);
 		}
 		else{
-			if(passagem_alterada == null || passagem == null){
+			if(passagemAlterada == null || passagem == null){
 	    		  IllegalArgumentException x = new IllegalArgumentException("");
 	    		  throw x;	
 			}
