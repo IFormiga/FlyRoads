@@ -18,7 +18,9 @@ public class ControladorViagemOnibus {
 		return this.repositorio.existe(codigo);
 	}
 	public ViagemOnibus procurar(String codigo){
-		return this.repositorio.procurar(codigo);
+		ViagemOnibus v1 = this.repositorio.procurar(codigo);
+        return v1;
+
 	}
 
 	public void cadastrar(ViagemOnibus viagem){
@@ -40,7 +42,7 @@ public class ControladorViagemOnibus {
 			//uma viagem está em andamento, portanto não pode ser removida
 		}
 		else{
-			this.repositorio.removerViagem(codigo);
+			this.repositorio.removerViagem(v1);
 		}
 
 	}

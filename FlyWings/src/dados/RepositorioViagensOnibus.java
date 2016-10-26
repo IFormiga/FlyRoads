@@ -42,19 +42,17 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
 	 * @see dados.IRepositorioViagensOnibus#removerViagem(java.lang.String)
 	 */
 	@Override
-	public boolean removerViagem(String codigo){
+	public boolean removerViagem(ViagemOnibus viagem){
 
 		boolean r = false;
-		if(codigo != null){
-		for (ViagemOnibus viagemOnibus : listaviagens) {
-			if(viagemOnibus.getCodigo() == codigo){
-				listaviagens.remove(viagemOnibus);
-				r = true;
-			}
+          if(viagem != null){
+        	  this.listaviagens.remove(viagem);
+        	  r = true;
+				}
+          	return r;
 		}
-	}
-		return r;
-	}
+
+
 
 	/* (non-Javadoc)
 	 * @see dados.IRepositorioViagensOnibus#listarViagens()
@@ -62,8 +60,8 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
 	@Override
 	public java.util.List<ViagemOnibus> listarViagens(){
 		return Collections.unmodifiableList(this.listaviagens);
-
 	}
+
 
 
 	/* (non-Javadoc)
@@ -96,19 +94,20 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
 		return verifica;
 	}
 
+
 	/* (non-Javadoc)
 	 * @see dados.IRepositorioViagensOnibus#procurar(java.lang.String)
 	 */
 	@Override
 	public ViagemOnibus procurar(String codigo){
 		ViagemOnibus resultado = null;
-		if(codigo != null){
-		for (ViagemOnibus viagemOnibus : listaviagens) {
-			if(viagemOnibus.getCodigo().equals(codigo)){
-				resultado = viagemOnibus;
-			}
+
+		for (int i = 0; i < this.listaviagens.size(); i++) {
+			     if (this.listaviagens.get(i).getCodigo().equals(codigo)) {
+			        resultado = this.listaviagens.get(i);
+			      }
 		}
-		}
+
 		return resultado;
 	}
 

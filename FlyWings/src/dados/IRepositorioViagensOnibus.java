@@ -1,12 +1,14 @@
 package dados;
 
+import java.util.ArrayList;
+
 import negocio.ViagemOnibus;
 
 public interface IRepositorioViagensOnibus {
 
 	boolean cadastrarViagem(ViagemOnibus v1);
 
-	boolean removerViagem(String codigo);
+	boolean removerViagem(ViagemOnibus viagem);
 
 	java.util.List<ViagemOnibus> listarViagens();
 
@@ -15,5 +17,7 @@ public interface IRepositorioViagensOnibus {
 	boolean existe(String codigo);
 
 	ViagemOnibus procurar(String codigo);
+
+
 
 }
