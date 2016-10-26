@@ -14,12 +14,11 @@ public class ViagemOnibus {
 	private LocalTime chegada;
 	private LocalDate data_origem;
 	private LocalDate data_chegada;
-	public ViagemOnibus(String linha, String codigo, String assento[], String origem, String destino, LocalTime saida,
+	public ViagemOnibus(String linha, String codigo, String origem, String destino, LocalTime saida,
 			LocalTime chegada, LocalDate data_origem, LocalDate data_chegada) {
 		super();
 		this.setLinha(linha);
 		this.setCodigo(codigo);
-		this.setAssento(assento);
 		this.setOrigem(origem);
 		this.setDestino(destino);
 		this.setSaida(saida);
@@ -42,13 +41,10 @@ public class ViagemOnibus {
 		if(codigo != null)
 		 this.codigo = codigo;
 	}
-	public String[] getAssento() {
+	public String[] getAssentos() {
 		return assento;
 	}
-	public void setAssento(String[] assento) {
-		if(assento != null)
-		this.assento = assento;
-	}
+
 	public String getOrigem() {
 		return origem;
 	}

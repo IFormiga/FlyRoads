@@ -4,13 +4,16 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import dados.IRepositorioViagensOnibus;
+import exceptions.JaExisteVooNesseHorarioException;
+import exceptions.VooJaExisteException;
+import exceptions.VooNaoExisteException;
 
 public class Teste {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws VooJaExisteException, JaExisteVooNesseHorarioException, VooNaoExisteException {
 
 		// teste com erro
-		ControladorViagemOnibus controlador = new ControladorViagemOnibus();
+		/*ControladorViagemOnibus controlador = new ControladorViagemOnibus();
 
 		String assentos[] = {"1A","2A"};
 		LocalTime saida = LocalTime.of(9,0);
@@ -27,7 +30,26 @@ public class Teste {
 
 		controlador.descadastrar("40");
 		System.out.println(controlador.existe("40"));
-
+		*/
+		IFlyRoads fachada = FlyRoadsFachada.getInstance();
+		
+		Usuario user = new Usuario("Igor", "123456", 20, "Boa Viagem", "Masculino", "IFormiga", "admin", "Senha: Admin");
+		fachada.cadastrarUsuario(user);
+		System.out.printf("%s\n", fachada.procurarUsuario("123456").toString());
+		
+		Voo voo = new Voo(10, 00, 13, 30, "São Paulo",
+			"Recife", 2016, 10, 26, 2016, 
+			10, 26, 6244);
+		fachada.cadastrarVoo(voo);
+		System.out.printf("%s\n", fachada.procurarVoo(voo.getCodigoDoVoo()).toString());
+		
+		Empresa empresa = new Empresa("Gol", "85753", "Aéreo");
+		fachada.cadastrarEmpresa(empresa);
+		System.out.printf("%s\n", fachada.procurarEmpresa(empresa.getNomeEmpresa(), empresa.getCnpj()).toString());
+		
+		ViagemOnibus viagem = new ViagemOnibus("linha 3", "81237556", String assento[], String origem, String destino, LocalTime saida,
+			LocalTime chegada, LocalDate data_origem, LocalDate data_chegada);
+		fachada.CadastrarViagemOnibus(viagem);
 
 
 

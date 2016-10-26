@@ -4,7 +4,7 @@ public class Usuario extends Pessoa {
 	private String nick;
 	private String senha;
 	private String dicaSenha;
-	private boolean confirmacao = false;
+	private boolean usuarioMestre = false;
 	protected static String senhaMestre = "123456";
 	
 	public Usuario(String nome, String cpf, int idade, String endereço, String sexo, String nick, String senha, String dicaSenha){
@@ -19,10 +19,10 @@ public class Usuario extends Pessoa {
 		if(senha.equals(Usuario.senhaMestre)){
 		r = true;
 		}
-		this.confirmacao = r;
+		this.usuarioMestre = r;
 	}
 	public boolean getConfirmacao() {
-		return this.confirmacao;
+		return this.usuarioMestre;
 	}
 	public String getNick(){
 		return this.nick;
@@ -39,8 +39,8 @@ public class Usuario extends Pessoa {
 	
 	@Override
 	public String toString() {
-		return "Usuario [nick=" + nick + ", senha=" + senha + ", dicaSenha=" + dicaSenha + ", confirmacao="
-				+ confirmacao + "]";
+		return "Usuario [nick=" + nick + ", senha=" + senha + ", dicaSenha=" + dicaSenha + ", usuarioMestre="
+				+ usuarioMestre + "]";
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class Usuario extends Pessoa {
 		if (getClass() != obj.getClass())
 			return false;
 		Usuario other = (Usuario) obj;
-		if (confirmacao != other.confirmacao)
+		if (usuarioMestre != other.usuarioMestre)
 			return false;
 		if (dicaSenha == null) {
 			if (other.dicaSenha != null)
