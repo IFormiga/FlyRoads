@@ -9,7 +9,7 @@ public class Teste {
 
 	public static void main(String[] args) {
 
-		
+		// teste com erro
 		ControladorViagemOnibus controlador = new ControladorViagemOnibus();
 
 		String assentos[] = {"1A","2A"};
