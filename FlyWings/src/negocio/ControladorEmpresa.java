@@ -1,5 +1,7 @@
 package negocio;
 
+import java.util.List;
+
 import dados.IRepositorioEmpresa;
 
 
@@ -26,6 +28,10 @@ public class ControladorEmpresa {
 		if(this.existe(e.getCnpj()) == false){
 			this.repositorio.cadastrarEmpresa(e);
 		}
+	}
+	
+	public List<Empresa> listar(){
+		return this.repositorio.listar();
 	}
 
 	public void descadastrar(String nomeDaEmpresa,String cnpj){

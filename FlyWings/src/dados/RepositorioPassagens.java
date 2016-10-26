@@ -29,10 +29,10 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 		}
 		return true;
 	}
-	public boolean alterarPassagem(Passagem a_ser_alterado,Passagem alterado){
+	public boolean alterarPassagem(Passagem aSerAlterado,Passagem alterado){
 		boolean r = false;
 		for(Passagem passagem2 : listaPassagens){
-			if(passagem2.getCodigo() == a_ser_alterado.getCodigo()){
+			if(passagem2.getCodigo() == aSerAlterado.getCodigo()){
 				listaPassagens.remove(passagem2);
 				listaPassagens.add(alterado);
 				r = true;

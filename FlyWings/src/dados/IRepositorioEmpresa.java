@@ -1,5 +1,7 @@
 package dados;
 
+import java.util.List;
+
 import negocio.Empresa;
 
 public interface IRepositorioEmpresa {
@@ -13,5 +15,7 @@ public interface IRepositorioEmpresa {
 	public abstract boolean existeEmpresa(String cnpj);
 
 	public abstract boolean atualizarEmpresa(Empresa empresa_para_alt,Empresa emp_alt);
+	
+	public abstract List<Empresa> listar();
 
 }

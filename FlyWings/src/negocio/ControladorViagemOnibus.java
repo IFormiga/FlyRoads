@@ -2,9 +2,8 @@ package negocio;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-
+import java.util.List;
 import dados.IRepositorioViagensOnibus;
-import dados.RepositorioViagensOnibus;
 
 public class ControladorViagemOnibus {
 
@@ -20,7 +19,10 @@ public class ControladorViagemOnibus {
 	public ViagemOnibus procurar(String codigo){
 		ViagemOnibus v1 = this.repositorio.procurar(codigo);
         return v1;
-
+	}
+	
+	public List<ViagemOnibus> listar(){
+		return this.repositorio.listarViagens();
 	}
 
 	public void cadastrar(ViagemOnibus viagem){

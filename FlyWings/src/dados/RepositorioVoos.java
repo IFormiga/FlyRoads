@@ -1,11 +1,5 @@
 package dados;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -23,7 +17,7 @@ public class RepositorioVoos implements IRepositorioVoo{
 	
 	public static RepositorioVoos getInstance(){
 	    if (instance == null) {
-		      instance = lerDoArquivo();
+		      instance = new RepositorioVoos();
 		    }
 		    return instance;
 	}
@@ -41,7 +35,7 @@ public class RepositorioVoos implements IRepositorioVoo{
 		int cod;
 		boolean r = false;
 		for(Voo voo2 : listaVoos){
-			cod = voo2.getCodigo_do_voo();
+			cod = voo2.getCodigoDoVoo();
 			if(cod == codigo_do_voo){
 				listaVoos.remove(voo2);
 				r = true;
@@ -57,7 +51,7 @@ public class RepositorioVoos implements IRepositorioVoo{
 		int cod;
 		Voo r = null;
 		for(Voo voo2 : listaVoos){
-			cod = voo2.getCodigo_do_voo();
+			cod = voo2.getCodigoDoVoo();
 			if(cod == codigo_do_voo){
 				r = voo2;
 			}
@@ -69,7 +63,7 @@ public class RepositorioVoos implements IRepositorioVoo{
 		int cod;
 		boolean r = false;
 		for(Voo voo2 : listaVoos){
-			cod = voo2.getCodigo_do_voo();
+			cod = voo2.getCodigoDoVoo();
 			if(cod == codigo_do_voo){
 				r = true;	
 			}
@@ -89,13 +83,13 @@ public class RepositorioVoos implements IRepositorioVoo{
 	
 	public void alterarVoo(Voo a_ser_alterado, Voo alterado){
 		for(Voo voo2 : listaVoos){
-			if(voo2.getCodigo_do_voo() == a_ser_alterado.getCodigo_do_voo()){
+			if(voo2.getCodigoDoVoo() == a_ser_alterado.getCodigoDoVoo()){
 				listaVoos.remove(voo2);
 				listaVoos.add(alterado);
 			}
 		}
 	}
-	
+	/*
 	public void salvarArquivo() {
 
 		if (instance == null) {
@@ -146,5 +140,6 @@ public class RepositorioVoos implements IRepositorioVoo{
 
 	    return instanciaLocal;
 	  }
+	  */
 	
 }

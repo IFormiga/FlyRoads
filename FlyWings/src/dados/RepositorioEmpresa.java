@@ -1,9 +1,8 @@
 package dados;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-import exceptions.EmpresaJaExisteException;
-import exceptions.EmpresaNaoExisteException;
 import negocio.Empresa;
 
 
@@ -81,7 +80,10 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 		}
 		return r;
 	}
-
+	
+	public List<Empresa> listar(){
+		return Collections.unmodifiableList(this.listaEmpresa);
+	}
 
 
 }
