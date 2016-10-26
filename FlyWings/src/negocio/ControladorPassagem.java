@@ -12,7 +12,7 @@ public class ControladorPassagem {
 	public ControladorPassagem(IRepositorioPassagem instanciaRepositorio){
 		this.repositorio = instanciaRepositorio;
 	}
-	public void cadastrarPassagem(Passagem p) throws PassagemJaExisteException {
+	public void venderPassagem(Passagem p) throws PassagemJaExisteException {
 		if (p != null && (this.repositorio.existePassagem(p.getCodigo())) == false){
 	        this.repositorio.cadastrarPassagem(p);
 	      } 

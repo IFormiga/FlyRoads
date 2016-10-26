@@ -1,18 +1,12 @@
 package dados;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import negocio.Passagem;
+
 public class RepositorioPassagens implements IRepositorioPassagem {
-	private List<Passagem> listaPassagens;
+	private ArrayList<Passagem> listaPassagens;
 	private static RepositorioPassagens instance;
 	
 	private RepositorioPassagens(){
@@ -21,7 +15,7 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 	
 	public static RepositorioPassagens getInstance(){
 	    if (instance == null) {
-		      instance = lerDoArquivo();
+		      instance = new RepositorioPassagens();
 		    }
 		    return instance;
 	}
@@ -87,7 +81,7 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 		}
 		return r;
 	}
-	
+	/*
 	public void salvarArquivo() {
 
 		if (instance == null) {
@@ -138,5 +132,5 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 
 	    return instanciaLocal;
 	  }
-	
+	*/
 }
