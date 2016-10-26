@@ -15,7 +15,7 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 	private List<Passagem> listaPassagens;
 	private static RepositorioPassagens instance;
 	
-	public RepositorioPassagens(){
+	private RepositorioPassagens(){
 		this.listaPassagens = new ArrayList<Passagem>(); 
 	}
 	
@@ -131,8 +131,8 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 	      if (ois != null) {
 	        try {
 	          ois.close();
-	        } catch (IOException e) {
-	        }
+	        	} catch (IOException e) {
+	        	  }
 	      }
 	    }
 
