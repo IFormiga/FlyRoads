@@ -27,31 +27,25 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 	    return instancia;
 	  }
 
-	public void cadastrarEmpresa(Empresa empresa1)throws EmpresaJaExisteException
-	{
+	public void cadastrarEmpresa(Empresa empresa1){
 	   	if(empresa1 != null){
-           if(listaEmpresa.contains(empresa1)){
-        	   EmpresaJaExisteException eee = new EmpresaJaExisteException(empresa1.getCnpj());
- 	   		   throw eee;
+           if(listaEmpresa.contains(empresa1) == false){
+        	   listaEmpresa.add(empresa1);
            }
-           listaEmpresa.add(empresa1);
+
 	   	}
 	}
 
-	public void deletarEmpresa(Empresa empresa1)throws EmpresaNaoExisteException
+	public void deletarEmpresa(Empresa empresa1)
 	{
 	    if(listaEmpresa.contains(empresa1))
 			{
 	    	    listaEmpresa.remove(empresa1);
 			}
-	    else if(!listaEmpresa.contains(empresa1))
-	    {
-	    	EmpresaNaoExisteException ene = new EmpresaNaoExisteException(empresa1.getCnpj());
-	   		   throw ene;
-	    }
+
 	}
 
-	public Empresa procurarEmpresa(String nome_da_empresa, String cnpj)throws EmpresaNaoExisteException{
+	public Empresa procurarEmpresa(String nome_da_empresa, String cnpj){
 		String cnpj2;
 		Empresa r = null;
 		for(Empresa empresa2 : this.listaEmpresa){
@@ -60,10 +54,7 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 				r = empresa2;
 			}
 		}
-			if(r == null){
-				EmpresaNaoExisteException ene = new EmpresaNaoExisteException(cnpj);
-	   		throw ene;
-		}
+
 		return r;
 	}
 

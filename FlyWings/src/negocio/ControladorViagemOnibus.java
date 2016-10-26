@@ -3,15 +3,15 @@ package negocio;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-
+import dados.IRepositorioViagensOnibus;
 import dados.RepositorioViagensOnibus;
 
 public class ControladorViagemOnibus {
 
-	private RepositorioViagensOnibus repositorio;
+	private IRepositorioViagensOnibus repositorio;
 
-	public ControladorViagemOnibus(){
-		this.repositorio = RepositorioViagensOnibus.getInstance();
+	public ControladorViagemOnibus(IRepositorioViagensOnibus irep){
+		this.repositorio = irep;
 	}
 
 	public boolean existe(String codigo){
@@ -24,7 +24,7 @@ public class ControladorViagemOnibus {
 	}
 
 	public void cadastrar(ViagemOnibus viagem){
-		if(viagem == null){
+		if(viagem.equals(null)){
 			throw new IllegalArgumentException("Parâmetro inválido");
 		}
 		else if(this.existe(viagem.getCodigo()) == false){
