@@ -32,14 +32,6 @@ public class Passagem {
 		this.user = user;
 	}
 
-	public Voo getFlight() {
-		return flight;
-	}
-
-	public void setFlight(Voo flight) {
-		this.flight = flight;
-	}
-
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
