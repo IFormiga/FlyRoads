@@ -9,6 +9,7 @@ public class Empresa {
 	public Empresa(String nomeEmpresa, String cnpj, String ramo){
 		this.nomeEmpresa = nomeEmpresa;
 		this.cnpj = cnpj;
+		this.ramo = ramo;
 	}
 	
 	public String getRamo() {

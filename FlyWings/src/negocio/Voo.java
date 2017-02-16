@@ -14,12 +14,13 @@ public class Voo {
 	
 	public Voo(int horaSaida, int minSaida, int horaChegada, int minChegada, String origem,
 			String destino, int anoSaida, int mesSaida, int diaSaida, int anoChegada, 
-			int mesChegada, int diaChegada, int codigo){
+			int mesChegada, int diaChegada, int codigo, String nomeEmpresa){
 		this.origem = origem;
 		this.destino = destino;
 		this.saida = LocalDateTime.of(anoSaida, mesSaida, diaSaida, horaSaida, minSaida);
 		this.chegada = LocalDateTime.of(anoChegada, mesChegada, diaChegada, horaChegada, minChegada);
 		this.codigoDoVoo = codigo;
+		this.nomeEmpresa = nomeEmpresa;
 	}
 	
 	public int numAssentos(){
@@ -140,9 +141,9 @@ public class Voo {
 
 	@Override
 	public String toString() {
-		return "Voo [nomeEmpresa=" + nomeEmpresa + ", codigoDoVoo=" + codigoDoVoo + ", chegada=" + chegada + ", saida="
-				+ saida + ", origem=" + origem + ", destino=" + destino + ", assentos=" + Arrays.toString(assentos)
-				+ ", numAssentos=" + numAssentos + "]";
+		return "Voo [nomeEmpresa=" + nomeEmpresa + ", codigoDoVoo=" + codigoDoVoo + ", chegada = " + chegada + ", saida="
+				+ saida + ", origem = " + origem + ", destino = " + destino + ", assentos = " + Arrays.toString(assentos)
+				+ ", numAssentos = " + numAssentos + "]";
 	}
 
 		

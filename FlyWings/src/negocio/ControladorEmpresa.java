@@ -26,7 +26,7 @@ public class ControladorEmpresa {
 		      throw new IllegalArgumentException("Parâmetro inválido");
 		    }
 		if(this.existe(e.getCnpj()) == false){
-			this.repositorio.cadastrarEmpresa(e);
+			this.repositorio.inserir(e);
 		}
 	}
 	

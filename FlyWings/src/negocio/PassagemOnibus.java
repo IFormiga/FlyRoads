@@ -20,7 +20,7 @@ public class PassagemOnibus extends Passagem {
 
 	public boolean equals(ViagemOnibus viagem){
 		boolean verifica = false;
-		if(this.getAssento().equals(viagem.getAssento()) && this.getCodigo().equals(viagem.getCodigo()))
+		if(this.getAssento().equals(viagem.getAssentos()) && this.getCodigo().equals(viagem.getCodigo()))
 			verifica = true;
 		return verifica;
 	}

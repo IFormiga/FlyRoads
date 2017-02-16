@@ -101,8 +101,8 @@ public class FlyRoadsFachada implements IFlyRoads{
 	public Usuario procurarUsuario(String cpf){
 		return this.usuarios.procurarUsuario(cpf);
 	}
-	public void procurarViagemOnibus(String codigo){
-		this.viagensOnibus.procurar(codigo);
+	public ViagemOnibus procurarViagemOnibus(String codigo){
+		return this.viagensOnibus.procurar(codigo);
 	}
 	// LISTAR
 	public List<Empresa> listaEmpresas(){

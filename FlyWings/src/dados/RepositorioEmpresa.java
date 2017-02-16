@@ -26,7 +26,7 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 	    return instancia;
 	  }
 
-	public void cadastrarEmpresa(Empresa empresa1){
+	public void inserir(Empresa empresa1){
 	   	if(empresa1 != null){
            if(listaEmpresa.contains(empresa1) == false){
         	   listaEmpresa.add(empresa1);

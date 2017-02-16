@@ -51,7 +51,7 @@ public interface IFlyRoads {
 
 	public abstract Usuario procurarUsuario(String cpf);
 
-	public abstract void procurarViagemOnibus(String codigo);
+	public abstract ViagemOnibus procurarViagemOnibus(String codigo);
 
 	// LISTAR
 	public abstract List<Empresa> listaEmpresas();

@@ -3,7 +3,7 @@ package negocio;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Arrays;
-
+//VAMOS PENSAR MELHOR NO SISTEMA DE ASSENTOS.
 public class ViagemOnibus {
 	private String linha;
 	private String codigo;
