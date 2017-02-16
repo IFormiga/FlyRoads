@@ -35,7 +35,7 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 	   	}
 	}
 
-	public void deletarEmpresa(Empresa empresa1)
+	public void deletar(Empresa empresa1)
 	{
 	    if(listaEmpresa.contains(empresa1))
 			{
@@ -44,7 +44,7 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 
 	}
 
-	public Empresa procurarEmpresa(String nome_da_empresa, String cnpj){
+	public Empresa procurarEmpresa(String nomeDaEmpresa, String cnpj){
 		String cnpj2;
 		Empresa r = null;
 		for(Empresa empresa2 : this.listaEmpresa){
@@ -57,14 +57,21 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 		return r;
 	}
 
-	public boolean atualizarEmpresa(Empresa empresa_para_alt, Empresa emp_alt)
+	public boolean atualizar(Empresa empresaAlt)
 	{
+
 		boolean r = false;
-		if(listaEmpresa.contains(empresa_para_alt))
+		if(listaEmpresa.contains(empresaAlt) == false)
 		{
-			listaEmpresa.remove(empresa_para_alt);
-			listaEmpresa.add(emp_alt);
-			r = true;
+			for (Empresa empresa : listaEmpresa) {
+				if(empresa.getCnpj() == empresaAlt.getCnpj()){
+					listaEmpresa.remove(empresa);
+					listaEmpresa.add(empresaAlt);
+					r = true;
+				}
+			}
+
+
 		}
 		return r;
 	}
@@ -80,10 +87,13 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 		}
 		return r;
 	}
-	
+
 	public List<Empresa> listar(){
 		return Collections.unmodifiableList(this.listaEmpresa);
 	}
+
+
+
 
 
 }

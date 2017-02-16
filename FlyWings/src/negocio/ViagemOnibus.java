@@ -12,19 +12,21 @@ public class ViagemOnibus {
 	private String destino;
 	private LocalTime saida;
 	private LocalTime chegada;
-	private LocalDate data_origem;
-	private LocalDate data_chegada;
-	public ViagemOnibus(String linha, String codigo, String origem, String destino, LocalTime saida,
-			LocalTime chegada, LocalDate data_origem, LocalDate data_chegada) {
+
+	private LocalDate dataOrigem;
+	private LocalDate dataChegada;
+	public ViagemOnibus(String linha, String codigo, String origem, String destino, int saidaHora, int saidaMinuto,
+			int chegadaHora,int chegadaMinuto,int anoSaida, int mesSaida, int diaSaida, int anoChegada,
+			int mesChegada, int diaChegada) {
 		super();
 		this.setLinha(linha);
 		this.setCodigo(codigo);
 		this.setOrigem(origem);
 		this.setDestino(destino);
-		this.setSaida(saida);
-		this.setChegada(chegada);
-		this.setData_origem(data_origem);
-		this.setData_chegada(data_chegada);
+		this.saida = LocalTime.of(saidaHora, saidaMinuto);
+		this.chegada = LocalTime.of(chegadaHora, chegadaMinuto);
+		this.dataOrigem = LocalDate.of(anoSaida, mesSaida, anoSaida);
+		this.dataChegada = LocalDate.of(anoChegada, mesChegada, diaChegada);
 
 	}
 	public String getLinha() {
@@ -59,39 +61,39 @@ public class ViagemOnibus {
 		if(destino != null)
 		this.destino = destino;
 	}
+
+
 	public LocalTime getSaida() {
 		return saida;
 	}
 	public void setSaida(LocalTime saida) {
-		if(saida != null)
 		this.saida = saida;
 	}
 	public LocalTime getChegada() {
 		return chegada;
 	}
 	public void setChegada(LocalTime chegada) {
-		if(chegada != null)
 		this.chegada = chegada;
 	}
-	public LocalDate getData_origem() {
-		return data_origem;
+	public LocalDate getDataorigem() {
+		return dataOrigem;
 	}
-	public void setData_origem(LocalDate data_origem) {
-		if(data_origem != null)
-		this.data_origem = data_origem;
+	public void setDataorigem(LocalDate dataorigem) {
+		if(dataOrigem != null)
+		this.dataOrigem = dataOrigem;
 	}
-	public LocalDate getData_chegada() {
-		return data_chegada;
+	public LocalDate getDatachegada() {
+		return dataChegada;
 	}
-	public void setData_chegada(LocalDate data_chegada) {
-		if(data_chegada != null)
-		this.data_chegada = data_chegada;
+	public void setData_chegada(LocalDate dataChegada) {
+		if(dataChegada != null)
+		this.dataChegada = dataChegada;
 	}
 	@Override
 	public String toString() {
 		return "ViagemOnibus [linha=" + linha + ", codigo=" + codigo + ", assento=" + Arrays.toString(assento)
 				+ ", origem=" + origem + ", destino=" + destino + ", saida=" + saida + ", chegada=" + chegada
-				+ ", data_origem=" + data_origem + ", data_chegada=" + data_chegada + "]";
+				+ ", data_origem=" + dataOrigem + ", data_chegada=" + dataChegada + "]";
 	}
 
    @Override
@@ -115,15 +117,15 @@ public class ViagemOnibus {
 				return false;
 		} else if (!codigo.equals(other.codigo))
 			return false;
-		if (data_chegada == null) {
-			if (other.data_chegada != null)
+		if (dataChegada == null) {
+			if (other.dataChegada != null)
 				return false;
-		} else if (!data_chegada.equals(other.data_chegada))
+		} else if (!dataChegada.equals(other.dataChegada))
 			return false;
-		if (data_origem == null) {
-			if (other.data_origem != null)
+		if (dataOrigem == null) {
+			if (other.dataOrigem != null)
 				return false;
-		} else if (!data_origem.equals(other.data_origem))
+		} else if (!dataOrigem.equals(other.dataOrigem))
 			return false;
 		if (destino == null) {
 			if (other.destino != null)

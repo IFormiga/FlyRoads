@@ -29,7 +29,7 @@ public class ControladorEmpresa {
 			this.repositorio.inserir(e);
 		}
 	}
-	
+
 	public List<Empresa> listar(){
 		return this.repositorio.listar();
 	}
@@ -41,12 +41,12 @@ public class ControladorEmpresa {
 			throw new IllegalArgumentException("Parâmetro inválido");
 		}
 		else
-			this.repositorio.deletarEmpresa(e1);
+			this.repositorio.deletar(e1);
 	}
 
    //implementando alterar
-	public void alterar(Empresa e1, Empresa e2){
-		this.repositorio.atualizarEmpresa(e1, e2);
+	public void alterar(Empresa e1){
+		this.repositorio.atualizar(e1);
 	}
 
 

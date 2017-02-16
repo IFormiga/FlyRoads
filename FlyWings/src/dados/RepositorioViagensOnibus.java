@@ -3,6 +3,7 @@ package dados;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import negocio.Empresa;
 import negocio.ViagemOnibus;
 
 public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
@@ -26,7 +27,7 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
 	 * @see dados.IRepositorioViagensOnibus#cadastrarViagem(negocio.ViagemOnibus)
 	 */
 	@Override
-	public boolean cadastrarViagem(ViagemOnibus v1){
+	public boolean cadastrar(ViagemOnibus v1){
 		boolean r = false;
 		if(v1 != null){
 		if(listaviagens.contains(v1) != true){
@@ -42,7 +43,7 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
 	 * @see dados.IRepositorioViagensOnibus#removerViagem(java.lang.String)
 	 */
 	@Override
-	public boolean removerViagem(ViagemOnibus viagem){
+	public boolean remover(ViagemOnibus viagem){
 
 		boolean r = false;
           if(viagem != null){
@@ -67,18 +68,8 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
 	/* (non-Javadoc)
 	 * @see dados.IRepositorioViagensOnibus#alterarViagem(negocio.ViagemOnibus, negocio.ViagemOnibus)
 	 */
-	@Override
-	public boolean alterarViagem(ViagemOnibus v_para_alterar,ViagemOnibus v_alterada){
-		boolean r = false;
-		if(v_para_alterar != null && v_alterada != null){
-			if(listaviagens.contains(v_para_alterar)){
-				listaviagens.remove(v_para_alterar);
-				listaviagens.add(v_alterada);
-				r = true;
-			}
-		}
-		return r;
-	}
+
+
 
 	/* (non-Javadoc)
 	 * @see dados.IRepositorioViagensOnibus#existe(java.lang.String)
@@ -109,6 +100,23 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
 		}
 
 		return resultado;
+	}
+	@Override
+	public boolean alterar(ViagemOnibus vParaAlterar) {
+		boolean r = false;
+		if(listaviagens.contains(vParaAlterar) == false)
+		{
+			for (ViagemOnibus v1 : listaviagens) {
+				if(v1.getCodigo() == vParaAlterar.getCodigo()){
+					listaviagens.remove(v1);
+					listaviagens.add(vParaAlterar);
+					r = true;
+				}
+			}
+
+
+		}
+		return r;
 	}
 
 }

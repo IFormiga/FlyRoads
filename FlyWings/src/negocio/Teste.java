@@ -32,29 +32,33 @@ public class Teste {
 		System.out.println(controlador.existe("40"));
 		*/
 		IFlyRoads fachada = FlyRoadsFachada.getInstance();
-		
+
 		Usuario user = new Usuario("Igor", "123456", 20, "Boa Viagem", "Masculino", "IFormiga", "admin", "Senha: Admin");
 		fachada.cadastrarUsuario(user);
 		System.out.printf("%s\n", fachada.procurarUsuario("123456").toString());
-		
+
 		Voo voo = new Voo(10, 00, 13, 30, "São Paulo","Recife", 2016, 10, 26, 2016, 10, 26, 6244, "Gol");
 		fachada.cadastrarVoo(voo);
 		System.out.printf("%s\n", fachada.procurarVoo(voo.getCodigoDoVoo()).toString());
-		
+
 		Empresa empresa = new Empresa("Gol", "85753", "Aéreo");
 		fachada.cadastrarEmpresa(empresa);
 		System.out.printf("%s\n", fachada.procurarEmpresa(empresa.getNomeEmpresa(), empresa.getCnpj()).toString());
-		
-		LocalTime saida = LocalTime.of(10,0);
-		LocalTime chegada = LocalTime.of(11,30);
-		
-		LocalDate data_origem = LocalDate.of(2017, 8, 25);
-		LocalDate data_chegada = LocalDate.of(2017, 8, 26);
-		
-		ViagemOnibus viagem = new ViagemOnibus("linha 3", "81237556", "Brasília", "São Paulo", saida,chegada,data_origem,data_chegada);
+
+
+
+
+
+		ViagemOnibus viagem = new ViagemOnibus("linha 3", "81237556", "Brasília", "São Paulo",10,0,11,30, 2017, 8, 25,2017, 8, 26);
 		fachada.CadastrarViagemOnibus(viagem);
 		System.out.printf("%s\n", fachada.procurarViagemOnibus(viagem.getCodigo()).toString());
-		
+
+
+		// teste atualizar
+		Empresa empresaatu = new Empresa("Tam", "85753", "Aereo");
+		fachada.alterarEmpresa(empresaatu);
+		System.out.println(fachada.procurarEmpresa("Tam", "85753").toString());
+
 
 
 

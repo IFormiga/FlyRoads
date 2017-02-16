@@ -6,13 +6,13 @@ import negocio.ViagemOnibus;
 
 public interface IRepositorioViagensOnibus {
 
-	boolean cadastrarViagem(ViagemOnibus v1);
+	boolean cadastrar(ViagemOnibus v1);
 
-	boolean removerViagem(ViagemOnibus viagem);
+	boolean remover(ViagemOnibus viagem);
 
 	java.util.List<ViagemOnibus> listarViagens();
 
-	boolean alterarViagem(ViagemOnibus v_para_alterar, ViagemOnibus v_alterada);
+	boolean alterar(ViagemOnibus vParaAlterar);
 
 	boolean existe(String codigo);
 

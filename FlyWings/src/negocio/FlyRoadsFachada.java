@@ -9,6 +9,7 @@ import dados.RepositorioVoos;
 import exceptions.JaExisteVooNesseHorarioException;
 import exceptions.PassagemJaExisteException;
 import exceptions.PassagemNaoExisteException;
+import exceptions.ViagemEmAndamentoException;
 import exceptions.VooJaExisteException;
 import exceptions.VooNaoExisteException;
 
@@ -18,9 +19,9 @@ public class FlyRoadsFachada implements IFlyRoads{
 	private ControladorVoo voos;
 	private ControladorUsuario usuarios;
 	private ControladorViagemOnibus viagensOnibus;
-	
+
 	private static IFlyRoads instance;
-	
+
 	private FlyRoadsFachada(){
 		this.empresas = new ControladorEmpresa(RepositorioEmpresa.getInstance());
 		this.passagens = new ControladorPassagem(RepositorioPassagens.getInstance());
@@ -28,7 +29,7 @@ public class FlyRoadsFachada implements IFlyRoads{
 		this.usuarios = new ControladorUsuario(RepositorioUsuarios.getInstance());
 		this.viagensOnibus = new ControladorViagemOnibus(RepositorioViagensOnibus.getInstance());
 	}
-	
+
 	public static IFlyRoads getInstance(){
 		if(instance == null){
 			instance = new FlyRoadsFachada();
@@ -36,7 +37,7 @@ public class FlyRoadsFachada implements IFlyRoads{
 		return instance;
 	}
 	//    CADASTRAR/VENDER
-	
+
 	public void cadastrarEmpresa(Empresa empresa){
 		this.empresas.cadastrar(empresa);
 	}
@@ -52,9 +53,9 @@ public class FlyRoadsFachada implements IFlyRoads{
 	public void CadastrarViagemOnibus(ViagemOnibus viagem){
 		this.viagensOnibus.cadastrar(viagem);
 	}
-	
+
 	//REMOVER
-	
+
 	public void removerEmpresa(String nomeDaEmpresaString, String cnpj){
 		this.empresas.descadastrar(nomeDaEmpresaString,cnpj);
 	}
@@ -64,16 +65,16 @@ public class FlyRoadsFachada implements IFlyRoads{
 	public void removerVoo(Voo v){
 		this.voos.removerVoo(v);
 	}
-	
+
 	public void removerUsuario(String cpf){
 		this.usuarios.removerUsuario(cpf);
 	}
-	public void removerViagemOnibus(String codigo){
+	public void removerViagemOnibus(String codigo) throws ViagemEmAndamentoException{
 		this.viagensOnibus.descadastrar(codigo);
 	}
 	//ALTERAR
-	public void alterarEmpresa(Empresa e1, Empresa e2){
-		this.empresas.alterar(e1, e2);
+	public void alterarEmpresa(Empresa e1){
+		this.empresas.alterar(e1);
 	}
 	public void alterarPassagem(Passagem passagemAlterada, Passagem passagem) throws PassagemNaoExisteException{
 		this.passagens.alterarPassagem(passagemAlterada, passagem);
@@ -84,10 +85,10 @@ public class FlyRoadsFachada implements IFlyRoads{
 	public void alterarUsuario(Usuario aSerAlterado, Usuario alterado){
 		this.usuarios.alterarUsuario(aSerAlterado, alterado);
 	}
-	public void alterarViagemOnibus(ViagemOnibus v1, ViagemOnibus v2){
-		this.viagensOnibus.alterar(v1, v2);
+	public void alterarViagemOnibus(ViagemOnibus v1){
+		this.viagensOnibus.alterar(v1);
 	}
-	
+
 	//PROCURAR
 	public Empresa procurarEmpresa(String nomeDaEmpresa, String cnpj){
 		return this.empresas.procurar(nomeDaEmpresa, cnpj);
