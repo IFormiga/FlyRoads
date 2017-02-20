@@ -14,10 +14,10 @@ public class ControladorEmpresa {
 	}
 
 	public boolean existe(String cnpj){
-		return this.repositorio.existeEmpresa(cnpj);
+		return this.repositorio.existe(cnpj);
 	}
 	public Empresa procurar(String nomeDaEmpresa, String cnpj){
-		Empresa e1 = this.repositorio.procurarEmpresa(nomeDaEmpresa, cnpj);
+		Empresa e1 = this.repositorio.procurar(nomeDaEmpresa, cnpj);
 		return e1;
 	}
 
@@ -35,7 +35,7 @@ public class ControladorEmpresa {
 	}
 
 	public void descadastrar(String nomeDaEmpresa,String cnpj){
-		Empresa e1 = this.repositorio.procurarEmpresa(nomeDaEmpresa, cnpj);
+		Empresa e1 = this.repositorio.procurar(nomeDaEmpresa, cnpj);
 
 		if(nomeDaEmpresa == null && cnpj == null){
 			throw new IllegalArgumentException("Parâmetro inválido");

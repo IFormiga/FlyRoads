@@ -44,7 +44,7 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 
 	}
 
-	public Empresa procurarEmpresa(String nomeDaEmpresa, String cnpj){
+	public Empresa procurar(String nomeDaEmpresa, String cnpj){
 		String cnpj2;
 		Empresa r = null;
 		for(Empresa empresa2 : this.listaEmpresa){
@@ -76,7 +76,7 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 		return r;
 	}
 
-	public boolean existeEmpresa(String cnpj) {
+	public boolean existe(String cnpj) {
 		boolean r = false;
 		String cnpj2;
 		for(Empresa empresa2 : this.listaEmpresa){

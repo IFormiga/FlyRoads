@@ -8,16 +8,16 @@ public interface IRepositorioVoo {
 
 	public abstract boolean verificaHorario(Voo v);
 
-	public abstract boolean cadastrarVoo(Voo voo); //ok
+	public abstract boolean cadastrar(Voo voo); //ok
 
-	public abstract boolean removerVoo(int codigo_do_voo); //ok
+	public abstract boolean remover(int codigoDoVoo); //ok
 
-	public abstract List<Voo> listaVoos(); //ok
+	public abstract List<Voo> listar(); //ok
 
-	public abstract Voo procurarVoo(int codigo_do_voo); //ok
+	public abstract Voo procurar(int codigoDoVoo); //ok
 
-	public abstract boolean existe(int codigo_do_voo);
+	public abstract boolean existe(int codigoDoVoo);
 	
-	public abstract void alterarVoo(Voo a_ser_alterado, Voo alterado); //ok
+	public abstract void alterar(Voo aSerAlterado, Voo alterado); //ok
 
 }

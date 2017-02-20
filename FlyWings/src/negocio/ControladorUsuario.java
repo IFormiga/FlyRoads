@@ -12,24 +12,24 @@ public class ControladorUsuario {
 	}
 	public void cadastrarUsuario(Usuario user){
 		if(user!=null){
-			this.repositorio.cadastrarUsuario(user);
+			this.repositorio.cadastrar(user);
 		}
 	}
 	public void removerUsuario(String cpf){
 		if(cpf!=null){
-			this.repositorio.removerUsuario(cpf);
+			this.repositorio.remover(cpf);
 		}
 	}
 	public void alterarUsuario(Usuario aSerAlterado, Usuario alterado){
 		if(aSerAlterado!=null && alterado!=null){
-			this.repositorio.alterarUsuario(aSerAlterado, alterado);
+			this.repositorio.alterar(aSerAlterado, alterado);
 		}
 	}
 	public List<Usuario> listar(){
-		return this.repositorio.listaUsuarios();
+		return this.repositorio.lista();
 	}
 	public Usuario procurarUsuario(String cpf){
-		return this.repositorio.procurarUsuario(cpf);
+		return this.repositorio.procurar(cpf);
 	}
 		
 }

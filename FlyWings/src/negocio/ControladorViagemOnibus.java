@@ -23,7 +23,7 @@ public class ControladorViagemOnibus {
 	}
 
 	public List<ViagemOnibus> listar(){
-		return this.repositorio.listarViagens();
+		return this.repositorio.listar();
 	}
 
 	public void cadastrar(ViagemOnibus viagem){

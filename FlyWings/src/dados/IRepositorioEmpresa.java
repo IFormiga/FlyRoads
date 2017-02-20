@@ -10,9 +10,9 @@ public interface IRepositorioEmpresa {
 
 	public abstract void deletar(Empresa empresa1) ;
 
-	public abstract Empresa procurarEmpresa(String nomeDaEmpresa,String cnpj); //TODO mudar o nome das variaveis tirar o "_" e o abstract é irrelevante
+	public abstract Empresa procurar(String nomeDaEmpresa,String cnpj); //TODO mudar o nome das variaveis tirar o "_" e o abstract é irrelevante
 
-	public abstract boolean existeEmpresa(String cnpj);
+	public abstract boolean existe(String cnpj);
 
 	public abstract boolean atualizar(Empresa emp_alt); //TODO Apenas com o objeto da entidade já dá pra alterar. Mudar em todos os códigos
 

@@ -59,7 +59,7 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
 	 * @see dados.IRepositorioViagensOnibus#listarViagens()
 	 */
 	@Override
-	public java.util.List<ViagemOnibus> listarViagens(){
+	public java.util.List<ViagemOnibus> listar(){
 		return Collections.unmodifiableList(this.listaviagens);
 	}
 

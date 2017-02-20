@@ -10,7 +10,7 @@ public interface IRepositorioViagensOnibus {
 
 	boolean remover(ViagemOnibus viagem);
 
-	java.util.List<ViagemOnibus> listarViagens();
+	java.util.List<ViagemOnibus> listar();
 
 	boolean alterar(ViagemOnibus vParaAlterar);
 

@@ -20,7 +20,7 @@ public class ControladorVoo {
 				verificacao = true;
 			}
 			if(verificacao == false){
-				this.repositorio.cadastrarVoo(v);
+				this.repositorio.cadastrar(v);
 			}
 			if(verificacao == true){
 				JaExisteVooNesseHorarioException m = new JaExisteVooNesseHorarioException(v.getCodigoDoVoo());
@@ -45,7 +45,7 @@ public class ControladorVoo {
 		  } 
 		  else{
 			  if (this.repositorio.existe(v.getCodigoDoVoo()) == true) {
-				  this.repositorio.removerVoo(v.getCodigoDoVoo());
+				  this.repositorio.remover(v.getCodigoDoVoo());
 			  } 
 			  else if(this.repositorio.existe(v.getCodigoDoVoo()) == false){
 				  //throw new VooNaoExisteException();
@@ -55,7 +55,7 @@ public class ControladorVoo {
 	
 	public Voo procurar(int cod) throws VooNaoExisteException{
 		if(this.repositorio.existe(cod) == true){
-		return this.repositorio.procurarVoo(cod);
+		return this.repositorio.procurar(cod);
 		}
 		else{
 			throw new VooNaoExisteException(cod);
@@ -66,12 +66,12 @@ public class ControladorVoo {
 		return this.listaVoo();
 	}
 
-	public void alterarVoo(Voo voo_alterado, Voo voo2){
-		if(voo_alterado != null && voo2 != null){
-			this.repositorio.alterarVoo(voo_alterado, voo2);
+	public void alterarVoo(Voo vooAlterado, Voo voo2){
+		if(vooAlterado != null && voo2 != null){
+			this.repositorio.alterar(vooAlterado, voo2);
 		}
 		else{
-			if(voo_alterado == null || voo2 == null){
+			if(vooAlterado == null || voo2 == null){
 	    		  IllegalArgumentException x = new IllegalArgumentException("");
 	    		  throw x;	
 			}

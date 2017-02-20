@@ -20,7 +20,7 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 		    return instance;
 	}
 	
-	public boolean cadastrarPassagem(Passagem passagem){
+	public boolean cadastrar(Passagem passagem){
 		try{
 			listaPassagens.add(passagem);
 		}
@@ -29,7 +29,7 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 		}
 		return true;
 	}
-	public boolean alterarPassagem(Passagem aSerAlterado,Passagem alterado){
+	public boolean alterar(Passagem aSerAlterado,Passagem alterado){
 		boolean r = false;
 		for(Passagem passagem2 : listaPassagens){
 			if(passagem2.getCodigo() == aSerAlterado.getCodigo()){
@@ -41,11 +41,11 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 		return r;
 	}
 	
-	public List<Passagem> listaPassagens(){
+	public List<Passagem> listar(){
 		return Collections.unmodifiableList(this.listaPassagens);
 	}
 	
-	public Passagem procurarPassagem(String codigo){
+	public Passagem procurar(String codigo){
 		String cod;
 		Passagem r = null;
 		for(Passagem passagem1 : listaPassagens){
@@ -57,7 +57,7 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 		return r;
 	}
 	
-	public boolean existePassagem(String codigo){
+	public boolean existe(String codigo){
 		boolean r = false;
 		String cod;
 		for(Passagem passagem1 : listaPassagens){
@@ -69,7 +69,7 @@ public class RepositorioPassagens implements IRepositorioPassagem {
 		return r;
 	}
 	
-	public boolean removerPassagem(String codigo){
+	public boolean remover(String codigo){
 		String cod;
 		boolean r = false;
 		for(Passagem passagem1 : listaPassagens){

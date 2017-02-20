@@ -21,7 +21,7 @@ public class RepositorioUsuarios implements IRepositorioUsuario{
 		    return instance;
 	}
 	
-	public boolean cadastrarUsuario(Usuario user){
+	public boolean cadastrar(Usuario user){
 		
 		try{
 			this.listaUsuarios.add(user);
@@ -31,7 +31,7 @@ public class RepositorioUsuarios implements IRepositorioUsuario{
 		}
 		return true;
 	}
-	public boolean alterarUsuario(Usuario a_ser_alterado,Usuario alterado){
+	public boolean alterar(Usuario a_ser_alterado,Usuario alterado){
 		boolean r = false;
 		for(Usuario user1 : listaUsuarios){
 			if(user1.getCpf().equals(a_ser_alterado.getCpf())){
@@ -43,7 +43,7 @@ public class RepositorioUsuarios implements IRepositorioUsuario{
 		return r;
 	}
 	
-	public boolean removerUsuario(String cpf){
+	public boolean remover(String cpf){
 		boolean r = false;
 		for(Usuario user1 : listaUsuarios){
 			if(user1.getCpf().equals(cpf)){
@@ -54,7 +54,7 @@ public class RepositorioUsuarios implements IRepositorioUsuario{
 		return r;
 	}
 	
-	public Usuario procurarUsuario(String cpf){
+	public Usuario procurar(String cpf){
 		Usuario user = null;
 		for(Usuario user1 : listaUsuarios){
 			if(user1.getCpf().equals(cpf)){
@@ -64,7 +64,7 @@ public class RepositorioUsuarios implements IRepositorioUsuario{
 		return user;
 	}
 	
-	public boolean existeUsuario(String cpf){
+	public boolean existe(String cpf){
 		boolean r = false;
 		for(Usuario user1 : listaUsuarios){
 			if(user1.getCpf().equals(cpf)){
@@ -74,7 +74,7 @@ public class RepositorioUsuarios implements IRepositorioUsuario{
 		return r;
 	}
 	
-	public List<Usuario> listaUsuarios(){
+	public List<Usuario> lista(){
 		return Collections.unmodifiableList(this.listaUsuarios);
 	}
 	

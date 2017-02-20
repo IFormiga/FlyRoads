@@ -22,7 +22,7 @@ public class RepositorioVoos implements IRepositorioVoo{
 		    return instance;
 	}
 	
-	public boolean cadastrarVoo(Voo voo){
+	public boolean cadastrar(Voo voo){
 		try{
 			listaVoos.add(voo);
 		}
@@ -31,40 +31,40 @@ public class RepositorioVoos implements IRepositorioVoo{
 		}
 		return true;
 	}
-	public boolean removerVoo(int codigo_do_voo){
+	public boolean remover(int codigoDoVoo){
 		int cod;
 		boolean r = false;
 		for(Voo voo2 : listaVoos){
 			cod = voo2.getCodigoDoVoo();
-			if(cod == codigo_do_voo){
+			if(cod == codigoDoVoo){
 				listaVoos.remove(voo2);
 				r = true;
 			}
 		}
 		return r;
 	}
-	public List<Voo> listaVoos(){
+	public List<Voo> listar(){
 		return Collections.unmodifiableList(this.listaVoos);
 	}
 	
-	public Voo procurarVoo(int codigo_do_voo){
+	public Voo procurar(int codigoDoVoo){
 		int cod;
 		Voo r = null;
 		for(Voo voo2 : listaVoos){
 			cod = voo2.getCodigoDoVoo();
-			if(cod == codigo_do_voo){
+			if(cod == codigoDoVoo){
 				r = voo2;
 			}
 		}
 		return r;
 	}
 	
-	public boolean existe(int codigo_do_voo){
+	public boolean existe(int codigoDoVoo){
 		int cod;
 		boolean r = false;
 		for(Voo voo2 : listaVoos){
 			cod = voo2.getCodigoDoVoo();
-			if(cod == codigo_do_voo){
+			if(cod == codigoDoVoo){
 				r = true;	
 			}
 		}
@@ -81,9 +81,9 @@ public class RepositorioVoos implements IRepositorioVoo{
 		return verificacao;
 	}
 	
-	public void alterarVoo(Voo a_ser_alterado, Voo alterado){
+	public void alterar(Voo aSerAlterado, Voo alterado){
 		for(Voo voo2 : listaVoos){
-			if(voo2.getCodigoDoVoo() == a_ser_alterado.getCodigoDoVoo()){
+			if(voo2.getCodigoDoVoo() == aSerAlterado.getCodigoDoVoo()){
 				listaVoos.remove(voo2);
 				listaVoos.add(alterado);
 			}

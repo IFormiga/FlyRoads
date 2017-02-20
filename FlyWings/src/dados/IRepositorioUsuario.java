@@ -6,16 +6,16 @@ import negocio.Usuario;
 
 public interface IRepositorioUsuario {
 
-	public abstract boolean cadastrarUsuario(Usuario user);
+	public abstract boolean cadastrar(Usuario user);
 
-	public abstract boolean alterarUsuario(Usuario aSerAlterado,Usuario alterado);
+	public abstract boolean alterar(Usuario aSerAlterado,Usuario alterado);
 
-	public abstract boolean removerUsuario(String cpf);
+	public abstract boolean remover(String cpf);
 
-	public abstract Usuario procurarUsuario(String cpf);
+	public abstract Usuario procurar(String cpf);
 	
-	public abstract boolean existeUsuario(String cpf);
+	public abstract boolean existe(String cpf);
 
-	public abstract List<Usuario> listaUsuarios();
+	public abstract List<Usuario> lista();
 
 }
