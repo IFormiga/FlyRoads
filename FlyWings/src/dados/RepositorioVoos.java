@@ -81,9 +81,9 @@ public class RepositorioVoos implements IRepositorioVoo{
 		return verificacao;
 	}
 	
-	public void alterar(Voo aSerAlterado, Voo alterado){
+	public void alterar(Voo alterado){
 		for(Voo voo2 : listaVoos){
-			if(voo2.getCodigoDoVoo() == aSerAlterado.getCodigoDoVoo()){
+			if(voo2.getCodigoDoVoo() == alterado.getCodigoDoVoo()){
 				listaVoos.remove(voo2);
 				listaVoos.add(alterado);
 			}

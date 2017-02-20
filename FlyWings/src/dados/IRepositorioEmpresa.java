@@ -14,7 +14,7 @@ public interface IRepositorioEmpresa {
 
 	public abstract boolean existe(String cnpj);
 
-	public abstract boolean atualizar(Empresa emp_alt); //TODO Apenas com o objeto da entidade já dá pra alterar. Mudar em todos os códigos
+	public abstract boolean atualizar(Empresa empAlt); //TODO Apenas com o objeto da entidade já dá pra alterar. Mudar em todos os códigos
 
 	public abstract List<Empresa> listar();
 

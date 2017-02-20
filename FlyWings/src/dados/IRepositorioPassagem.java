@@ -8,7 +8,7 @@ public interface IRepositorioPassagem {
 
 	public abstract boolean cadastrar(Passagem passagem);
 
-	public abstract boolean alterar(Passagem aSerAlterado,Passagem alterado);
+	public abstract boolean alterar(Passagem alterado);
 
 	public abstract List<Passagem> listar();
 	

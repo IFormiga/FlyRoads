@@ -31,11 +31,11 @@ public class RepositorioUsuarios implements IRepositorioUsuario{
 		}
 		return true;
 	}
-	public boolean alterar(Usuario a_ser_alterado,Usuario alterado){
+	public boolean alterar(Usuario alterado){
 		boolean r = false;
 		for(Usuario user1 : listaUsuarios){
-			if(user1.getCpf().equals(a_ser_alterado.getCpf())){
-				listaUsuarios.remove(a_ser_alterado);
+			if(user1.getCpf().equals(alterado.getCpf())){
+				listaUsuarios.remove(alterado);
 				listaUsuarios.add(alterado);
 				r = true;
 			}

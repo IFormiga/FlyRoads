@@ -8,7 +8,7 @@ public interface IRepositorioUsuario {
 
 	public abstract boolean cadastrar(Usuario user);
 
-	public abstract boolean alterar(Usuario aSerAlterado,Usuario alterado);
+	public abstract boolean alterar(Usuario alterado);
 
 	public abstract boolean remover(String cpf);
 

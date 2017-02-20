@@ -18,6 +18,6 @@ public interface IRepositorioVoo {
 
 	public abstract boolean existe(int codigoDoVoo);
 	
-	public abstract void alterar(Voo aSerAlterado, Voo alterado); //ok
+	public abstract void alterar(Voo alterado); //ok
 
 }
