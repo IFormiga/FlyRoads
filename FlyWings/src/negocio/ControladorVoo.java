@@ -68,7 +68,7 @@ public class ControladorVoo {
 
 	public void alterarVoo(Voo vooAlterado, Voo voo2){
 		if(vooAlterado != null && voo2 != null){
-			this.repositorio.alterar(vooAlterado, voo2);
+			this.repositorio.alterar(vooAlterado);
 		}
 		else{
 			if(vooAlterado == null || voo2 == null){
