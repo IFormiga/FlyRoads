@@ -1,4 +1,10 @@
 package dados;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -21,7 +27,7 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 	public static RepositorioEmpresa getInstance() {
 
 		if(instancia == null){
-			instancia = new RepositorioEmpresa();
+			instancia = lerDoArquivo();
 		}
 	    return instancia;
 	  }
@@ -30,6 +36,7 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 	   	if(empresa1 != null){
            if(listaEmpresa.contains(empresa1) == false){
         	   listaEmpresa.add(empresa1);
+        	   instancia.salvarArquivo();
            }
 
 	   	}
@@ -37,9 +44,10 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 
 	public void deletar(Empresa empresa1)
 	{
-	    if(listaEmpresa.contains(empresa1))
+	    if(empresa1!= null && listaEmpresa.contains(empresa1))
 			{
 	    	    listaEmpresa.remove(empresa1);
+	    	    instancia.salvarArquivo();
 			}
 
 	}
@@ -67,6 +75,7 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 				if(empresa.getCnpj() == empresaAlt.getCnpj()){
 					listaEmpresa.remove(empresa);
 					listaEmpresa.add(empresaAlt);
+					instancia.salvarArquivo();
 					r = true;
 				}
 			}
@@ -92,6 +101,63 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 		return Collections.unmodifiableList(this.listaEmpresa);
 	}
 
+	private static RepositorioEmpresa lerDoArquivo(){
+		RepositorioEmpresa instancia = null;
+
+		File arqviempresa = new File("RepositorioEmpresa.dat");
+		FileInputStream fis = null;
+		ObjectInputStream obis = null;
+
+		try {
+			fis = new FileInputStream(arqviempresa);
+			obis = new ObjectInputStream(fis);
+			instancia = (RepositorioEmpresa) obis.readObject();
+
+		} catch (Exception e) {
+			instancia = new RepositorioEmpresa();
+		}
+		finally {
+			if(obis != null){
+				try {
+					obis.close();
+				} catch (IOException e) {
+					System.out.println("Nao foi possível fechar o arquivo");
+					e.printStackTrace();
+				}
+			}
+		}
+		return instancia;
+	}
+	public void salvarArquivo(){
+		if (instancia == null) {
+		      return;
+		    }
+		File arq = new File("RepositorioEmpresa.dat");
+		FileOutputStream fos = null;
+		ObjectOutputStream opst = null;
+		try {
+
+			fos = new FileOutputStream(arq);
+			opst = new ObjectOutputStream(fos);
+			opst.writeObject(instancia);
+
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+           if(opst != null){
+        	   try {
+				opst.close();
+			} catch (IOException  e) {
+				System.out.println("Nao foi possivel fechar o arquivo");
+				e.printStackTrace();
+			}
+           }
+
+	}
+}
 
 
 

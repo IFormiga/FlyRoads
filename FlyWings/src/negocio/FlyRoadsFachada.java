@@ -6,10 +6,14 @@ import dados.RepositorioPassagens;
 import dados.RepositorioUsuarios;
 import dados.RepositorioViagensOnibus;
 import dados.RepositorioVoos;
+import exceptions.EmpresaJaExisteException;
+import exceptions.EmpresaNaoExisteException;
 import exceptions.JaExisteVooNesseHorarioException;
 import exceptions.PassagemJaExisteException;
 import exceptions.PassagemNaoExisteException;
 import exceptions.ViagemEmAndamentoException;
+import exceptions.ViagemOnibusJaExisteException;
+import exceptions.ViagemOnibusNaoExisteException;
 import exceptions.VooJaExisteException;
 import exceptions.VooNaoExisteException;
 
@@ -38,7 +42,7 @@ public class FlyRoadsFachada implements IFlyRoads{
 	}
 	//    CADASTRAR/VENDER
 
-	public void cadastrarEmpresa(Empresa empresa){
+	public void cadastrarEmpresa(Empresa empresa) throws EmpresaJaExisteException{
 		this.empresas.cadastrar(empresa);
 	}
 	public void venderPassagem(Passagem passagem) throws PassagemJaExisteException{
@@ -50,13 +54,13 @@ public class FlyRoadsFachada implements IFlyRoads{
 	public void cadastrarUsuario(Usuario user){
 		this.usuarios.cadastrarUsuario(user);
 	}
-	public void CadastrarViagemOnibus(ViagemOnibus viagem){
+	public void CadastrarViagemOnibus(ViagemOnibus viagem) throws ViagemOnibusJaExisteException{
 		this.viagensOnibus.cadastrar(viagem);
 	}
 
 	//REMOVER
 
-	public void removerEmpresa(String nomeDaEmpresaString, String cnpj){
+	public void removerEmpresa(String nomeDaEmpresaString, String cnpj) throws EmpresaNaoExisteException{
 		this.empresas.descadastrar(nomeDaEmpresaString,cnpj);
 	}
 	public void removerPassagem(Passagem passagem) throws PassagemNaoExisteException, PassagemJaExisteException{
@@ -69,7 +73,7 @@ public class FlyRoadsFachada implements IFlyRoads{
 	public void removerUsuario(String cpf){
 		this.usuarios.removerUsuario(cpf);
 	}
-	public void removerViagemOnibus(String codigo) throws ViagemEmAndamentoException{
+	public void removerViagemOnibus(String codigo) throws ViagemEmAndamentoException, ViagemOnibusNaoExisteException{
 		this.viagensOnibus.descadastrar(codigo);
 	}
 	//ALTERAR
@@ -90,7 +94,7 @@ public class FlyRoadsFachada implements IFlyRoads{
 	}
 
 	//PROCURAR
-	public Empresa procurarEmpresa(String nomeDaEmpresa, String cnpj){
+	public Empresa procurarEmpresa(String nomeDaEmpresa, String cnpj) throws EmpresaNaoExisteException{
 		return this.empresas.procurar(nomeDaEmpresa, cnpj);
 	}
 	public Passagem procurarPassagem(String cod) throws PassagemNaoExisteException{
@@ -102,7 +106,7 @@ public class FlyRoadsFachada implements IFlyRoads{
 	public Usuario procurarUsuario(String cpf){
 		return this.usuarios.procurarUsuario(cpf);
 	}
-	public ViagemOnibus procurarViagemOnibus(String codigo){
+	public ViagemOnibus procurarViagemOnibus(String codigo) throws ViagemOnibusNaoExisteException{
 		return this.viagensOnibus.procurar(codigo);
 	}
 	// LISTAR

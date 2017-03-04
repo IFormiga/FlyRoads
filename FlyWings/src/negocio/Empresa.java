@@ -1,17 +1,25 @@
 package negocio;
 
-public class Empresa {
+public class Empresa extends Entidade {
+
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 6599039238113579552L;
+	/**
+	 *
+	 */
 
 	public String nomeEmpresa;
 	public String cnpj;
 	public String ramo;
-	
+
 	public Empresa(String nomeEmpresa, String cnpj, String ramo){
 		this.nomeEmpresa = nomeEmpresa;
 		this.cnpj = cnpj;
 		this.ramo = ramo;
 	}
-	
+
 	public String getRamo() {
 		return ramo;
 	}
@@ -31,8 +39,8 @@ public class Empresa {
 	}
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
-	}	
-	
+	}
+
 	@Override
 	public String toString() {
 		return "Empresa [nomeEmpresa=" + nomeEmpresa + ", cnpj=" + cnpj + ", ramo=" + ramo + "]";
@@ -65,5 +73,5 @@ public class Empresa {
 		return true;
 	}
 
-	
+
 }

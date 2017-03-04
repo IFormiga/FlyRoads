@@ -4,7 +4,11 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Arrays;
 //VAMOS PENSAR MELHOR NO SISTEMA DE ASSENTOS.
-public class ViagemOnibus {
+public class ViagemOnibus extends Entidade {
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -533762086151831264L;
 	private String linha;
 	private String codigo;
 	private String assento[] = {"1A","2A","3A","2B","3B"};

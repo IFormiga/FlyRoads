@@ -1,14 +1,26 @@
 package dados;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
 import negocio.Empresa;
 import negocio.ViagemOnibus;
 
-public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
+public class RepositorioViagensOnibus implements IRepositorioViagensOnibus,Serializable {
 
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = -7967599937724774037L;
 	private ArrayList<ViagemOnibus> listaviagens;
 	private static RepositorioViagensOnibus instance;
 
@@ -17,7 +29,7 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
 	}
 	public static RepositorioViagensOnibus getInstance(){
 		if(instance == null){
-			instance = new RepositorioViagensOnibus();
+			instance = lerDoArquivo();
 		}
 		return instance;
 	}
@@ -32,6 +44,7 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
 		if(v1 != null){
 		if(listaviagens.contains(v1) != true){
             listaviagens.add(v1);
+            instance.salvarArquivo();
             r = true;
 		}
 
@@ -48,6 +61,7 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
 		boolean r = false;
           if(viagem != null){
         	  this.listaviagens.remove(viagem);
+        	  instance.salvarArquivo();
         	  r = true;
 				}
           	return r;
@@ -110,6 +124,7 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
 				if(v1.getCodigo() == vParaAlterar.getCodigo()){
 					listaviagens.remove(v1);
 					listaviagens.add(vParaAlterar);
+					instance.salvarArquivo();
 					r = true;
 				}
 			}
@@ -119,4 +134,61 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus {
 		return r;
 	}
 
+	private static RepositorioViagensOnibus lerDoArquivo(){
+		RepositorioViagensOnibus instancia = null;
+
+		File arqviagens = new File("RepositorioViagensOnibus.dat");
+		FileInputStream fis = null;
+		ObjectInputStream obis = null;
+
+		try {
+			fis = new FileInputStream(arqviagens);
+			obis = new ObjectInputStream(fis);
+			instancia = (RepositorioViagensOnibus) obis.readObject();
+
+		} catch (Exception e) {
+			instancia = new RepositorioViagensOnibus();
+		}
+		finally {
+			if(obis != null){
+				try {
+					obis.close();
+				} catch (IOException e) {
+					System.out.println("Nao foi possível fechar o arquivo");
+					e.printStackTrace();
+				}
+			}
+		}
+		return instancia;
+	}
+	public void salvarArquivo(){
+		if (instance == null) {
+		      return;
+		    }
+		File arq = new File("RepositorioViagens.dat");
+		FileOutputStream fos = null;
+		ObjectOutputStream opst = null;
+		try {
+
+			fos = new FileOutputStream(arq);
+			opst = new ObjectOutputStream(fos);
+			opst.writeObject(instance);
+
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+           if(opst != null){
+        	   try {
+				opst.close();
+			} catch (IOException  e) {
+				System.out.println("Nao foi possivel fechar o arquivo");
+				e.printStackTrace();
+			}
+           }
+
+	}
+}
 }

@@ -2,15 +2,19 @@ package negocio;
 
 import java.util.List;
 
+import exceptions.EmpresaJaExisteException;
+import exceptions.EmpresaNaoExisteException;
 import exceptions.JaExisteVooNesseHorarioException;
 import exceptions.PassagemJaExisteException;
 import exceptions.PassagemNaoExisteException;
 import exceptions.ViagemEmAndamentoException;
+import exceptions.ViagemOnibusJaExisteException;
+import exceptions.ViagemOnibusNaoExisteException;
 import exceptions.VooJaExisteException;
 import exceptions.VooNaoExisteException;
 
 public interface IFlyRoads {
-	public abstract void cadastrarEmpresa(Empresa empresa);
+	public abstract void cadastrarEmpresa(Empresa empresa) throws EmpresaJaExisteException;
 
 	public abstract void venderPassagem(Passagem passagem) throws PassagemJaExisteException;
 
@@ -18,11 +22,11 @@ public interface IFlyRoads {
 
 	public abstract void cadastrarUsuario(Usuario user);
 
-	public abstract void CadastrarViagemOnibus(ViagemOnibus viagem);
+	public abstract void CadastrarViagemOnibus(ViagemOnibus viagem) throws ViagemOnibusJaExisteException;
 
 	//REMOVER
 
-	public abstract void removerEmpresa(String nomeDaEmpresaString, String cnpj);
+	public abstract void removerEmpresa(String nomeDaEmpresaString, String cnpj)throws EmpresaNaoExisteException;
 
 	public abstract void removerPassagem(Passagem passagem) throws PassagemNaoExisteException, PassagemJaExisteException;
 
@@ -30,7 +34,7 @@ public interface IFlyRoads {
 
 	public abstract void removerUsuario(String cpf);
 
-	public abstract void removerViagemOnibus(String codigo) throws ViagemEmAndamentoException;
+	public abstract void removerViagemOnibus(String codigo) throws ViagemEmAndamentoException,ViagemOnibusNaoExisteException;
 
 	//ALTERAR
 	public abstract void alterarEmpresa(Empresa e1);
@@ -44,7 +48,7 @@ public interface IFlyRoads {
 	public abstract void alterarViagemOnibus(ViagemOnibus v1);
 
 	//PROCURAR
-	public abstract Empresa procurarEmpresa(String nomeDaEmpresa, String cnpj);
+	public abstract Empresa procurarEmpresa(String nomeDaEmpresa, String cnpj) throws EmpresaNaoExisteException;
 
 	public abstract Passagem procurarPassagem(String cod) throws PassagemNaoExisteException;
 
@@ -52,7 +56,7 @@ public interface IFlyRoads {
 
 	public abstract Usuario procurarUsuario(String cpf);
 
-	public abstract ViagemOnibus procurarViagemOnibus(String codigo);
+	public abstract ViagemOnibus procurarViagemOnibus(String codigo) throws ViagemOnibusNaoExisteException;
 
 	// LISTAR
 	public abstract List<Empresa> listaEmpresas();
