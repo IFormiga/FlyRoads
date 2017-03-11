@@ -18,6 +18,9 @@ public interface IRepositorioViagensOnibus {
 
 	ViagemOnibus procurar(String codigo);
 
+	void salvarArquivo();
+
+
 
 
 }

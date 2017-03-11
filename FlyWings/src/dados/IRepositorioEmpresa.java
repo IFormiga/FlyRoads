@@ -18,4 +18,6 @@ public interface IRepositorioEmpresa {
 
 	public abstract List<Empresa> listar();
 
+	public void salvarArquivo();
+
 }

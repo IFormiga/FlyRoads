@@ -20,7 +20,7 @@ public class ControladorEmpresa {
 	}
 	public Empresa procurar(String nomeDaEmpresa, String cnpj) throws EmpresaNaoExisteException{
 		Empresa e1 = null;
-		if(nomeDaEmpresa== null || cnpj==null){
+		if(nomeDaEmpresa.equals(null) || cnpj.equals(null)){
 			throw new IllegalArgumentException("Paramentro inválido");
 		}
 		else if(this.repositorio.existe(cnpj) == false){
@@ -43,6 +43,8 @@ public class ControladorEmpresa {
 		}
 		else{
 			this.repositorio.inserir(e);
+			this.repositorio.salvarArquivo();
+
 		}
 	}
 
@@ -63,16 +65,19 @@ public class ControladorEmpresa {
 		else{
 			Empresa e1 = this.procurar(nomeDaEmpresa, cnpj);
 			this.repositorio.deletar(e1);
+			this.repositorio.salvarArquivo();
 		}
 		}
 
    //implementando alterar
 	public void alterar(Empresa e1){
-		if(e1.equals(null)){
-			throw new IllegalArgumentException("Paramentro inválido");
-		}
-		else{
+		if(!e1.equals(null) && this.repositorio.existe(e1.getCnpj())){
+
 			this.repositorio.atualizar(e1);
+			this.repositorio.salvarArquivo();
+		}
+		else {
+			throw new IllegalArgumentException("Paramentro inválido");
 		}
 
 	}

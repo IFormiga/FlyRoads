@@ -29,7 +29,7 @@ public class ViagemOnibus extends Entidade {
 		this.setDestino(destino);
 		this.saida = LocalTime.of(saidaHora, saidaMinuto);
 		this.chegada = LocalTime.of(chegadaHora, chegadaMinuto);
-		this.dataOrigem = LocalDate.of(anoSaida, mesSaida, anoSaida);
+		this.dataOrigem = LocalDate.of(anoSaida, mesSaida, diaSaida);
 		this.dataChegada = LocalDate.of(anoChegada, mesChegada, diaChegada);
 
 	}

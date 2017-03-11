@@ -27,6 +27,7 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 	public static RepositorioEmpresa getInstance() {
 
 		if(instancia == null){
+			instancia = new RepositorioEmpresa();
 			instancia = lerDoArquivo();
 		}
 	    return instancia;
@@ -36,7 +37,7 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 	   	if(empresa1 != null){
            if(listaEmpresa.contains(empresa1) == false){
         	   listaEmpresa.add(empresa1);
-        	   instancia.salvarArquivo();
+
            }
 
 	   	}
@@ -47,7 +48,7 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 	    if(empresa1!= null && listaEmpresa.contains(empresa1))
 			{
 	    	    listaEmpresa.remove(empresa1);
-	    	    instancia.salvarArquivo();
+
 			}
 
 	}
@@ -67,7 +68,6 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 
 	public boolean atualizar(Empresa empresaAlt)
 	{
-
 		boolean r = false;
 		if(listaEmpresa.contains(empresaAlt) == false)
 		{
@@ -75,12 +75,9 @@ public class RepositorioEmpresa implements IRepositorioEmpresa{
 				if(empresa.getCnpj() == empresaAlt.getCnpj()){
 					listaEmpresa.remove(empresa);
 					listaEmpresa.add(empresaAlt);
-					instancia.salvarArquivo();
 					r = true;
 				}
 			}
-
-
 		}
 		return r;
 	}

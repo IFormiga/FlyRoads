@@ -45,6 +45,9 @@ public class ControladorViagemOnibus {
 		}
 		else if(this.existe(viagem.getCodigo()) == false){
 			this.repositorio.cadastrar(viagem);
+			this.repositorio.salvarArquivo();
+
+
 		}
 		else
 		{
@@ -71,13 +74,15 @@ public class ControladorViagemOnibus {
 		}
 		else{
 			this.repositorio.remover(v1);
+			this.repositorio.salvarArquivo();
 		}
 
 	}
 
 	public void alterar(ViagemOnibus v1){
-		if(v1.equals(null)){
+		if(!v1.equals(null) && this.repositorio.existe(v1.getCodigo())== true){
 			this.repositorio.alterar(v1);
+			this.repositorio.salvarArquivo();
 		}
 		else
 		{

@@ -29,6 +29,7 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus,Seria
 	}
 	public static RepositorioViagensOnibus getInstance(){
 		if(instance == null){
+			instance = new RepositorioViagensOnibus();
 			instance = lerDoArquivo();
 		}
 		return instance;
@@ -44,7 +45,7 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus,Seria
 		if(v1 != null){
 		if(listaviagens.contains(v1) != true){
             listaviagens.add(v1);
-            instance.salvarArquivo();
+
             r = true;
 		}
 
@@ -61,7 +62,7 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus,Seria
 		boolean r = false;
           if(viagem != null){
         	  this.listaviagens.remove(viagem);
-        	  instance.salvarArquivo();
+
         	  r = true;
 				}
           	return r;
@@ -85,6 +86,10 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus,Seria
 
 
 
+	@Override
+	public String toString() {
+		return "RepositorioViagensOnibus [listaviagens=" + listaviagens + "]";
+	}
 	/* (non-Javadoc)
 	 * @see dados.IRepositorioViagensOnibus#existe(java.lang.String)
 	 */
@@ -124,7 +129,7 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus,Seria
 				if(v1.getCodigo() == vParaAlterar.getCodigo()){
 					listaviagens.remove(v1);
 					listaviagens.add(vParaAlterar);
-					instance.salvarArquivo();
+
 					r = true;
 				}
 			}
@@ -165,7 +170,7 @@ public class RepositorioViagensOnibus implements IRepositorioViagensOnibus,Seria
 		if (instance == null) {
 		      return;
 		    }
-		File arq = new File("RepositorioViagens.dat");
+		File arq = new File("RepositorioViagensOnibus.dat");
 		FileOutputStream fos = null;
 		ObjectOutputStream opst = null;
 		try {
