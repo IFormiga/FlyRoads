@@ -1,6 +1,10 @@
 package negocio;
 
-abstract class Pessoa {
+abstract class Pessoa extends Entidade{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 626728217028800789L;
 	private String nome;
 	private String cpf;
 	private	int idade;

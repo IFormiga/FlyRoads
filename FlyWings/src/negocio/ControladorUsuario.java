@@ -20,9 +20,9 @@ public class ControladorUsuario {
 			this.repositorio.remover(cpf);
 		}
 	}
-	public void alterarUsuario(Usuario aSerAlterado, Usuario alterado){
-		if(aSerAlterado!=null && alterado!=null){
-			this.repositorio.alterar(aSerAlterado, alterado);
+	public void alterarUsuario(Usuario user){
+		if(user!=null){
+			this.repositorio.alterar(user);
 		}
 	}
 	public List<Usuario> listar(){
