@@ -84,7 +84,7 @@ public class ViagemOnibus extends Entidade {
 	}
 	public void setDataorigem(LocalDate dataorigem) {
 		if(dataOrigem != null)
-		this.dataOrigem = dataOrigem;
+		this.dataOrigem = dataorigem;
 	}
 	public LocalDate getDatachegada() {
 		return dataChegada;
