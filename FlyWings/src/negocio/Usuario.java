@@ -1,6 +1,10 @@
 package negocio;
 
 public class Usuario extends Pessoa {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8874169861904654757L;
 	private String nick;
 	private String senha;
 	private String dicaSenha;

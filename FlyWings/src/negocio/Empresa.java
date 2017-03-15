@@ -2,13 +2,8 @@ package negocio;
 
 public class Empresa extends Entidade {
 
-	/**
-	 *
-	 */
 	private static final long serialVersionUID = 6599039238113579552L;
-	/**
-	 *
-	 */
+	
 
 	public String nomeEmpresa;
 	public String cnpj;

@@ -2,7 +2,11 @@ package negocio;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 
-public class Voo {
+public class Voo extends Entidade{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1733529284768383149L;
 	private String nomeEmpresa;
 	private int codigoDoVoo;
 	private LocalDateTime chegada;

@@ -28,17 +28,19 @@ public class ControladorPassagem {
 	      }
 	}
 	public void alterarPassagem(Passagem passagemAlterada) throws PassagemNaoExisteException {
+		boolean r;
 		if(passagemAlterada != null){
-			this.repositorio.alterar(passagemAlterada);
+			
+			r = this.repositorio.alterar(passagemAlterada);
+			if(r==false){
+				PassagemNaoExisteException z = new PassagemNaoExisteException(passagemAlterada.toString());
+	    		throw z;
+			}
 		}
 		else{
 			if(passagemAlterada == null){
 	    		  IllegalArgumentException x = new IllegalArgumentException("");
 	    		  throw x;
-			}
-			else{
-				//PassagemJaExisteException z = new PassagemJaExisteException();
-	    		//throw z;
 			}
 		}
 	}
